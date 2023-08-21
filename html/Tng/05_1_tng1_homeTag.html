@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+    <h1>회원가입을 환영합니다</h1>
+    <fieldset><legend>사용자 정보</legend>
+        <ul>
+        <li><label for="id">아이디</label>
+        <input type="text" id="id" minlength="4" maxlength="10" placeholder="4자~10자 사이, 공백없이" required>
+    </li>
+    <li>
+        <label for="email">이메일</label>
+        <input type="email" id="email">
+    </li>
+    <li>
+        <label for="pw">비밀번호</label>
+        <input type="password" id="pw" placeholder="문자와 숫자, 특수 기호 포함" required>
+    </li>
+    <li>
+        <label for="pw2">비밀번호 확인</label>
+        <input type="password" id="pw2" required>
+    </li>
+    <li>
+        <label for="가입경로">가입경로</label> <select name="가입경로" id="가입경로">
+        <option value="0">블로그</option>
+        <option value="1">지인소개</option>
+        <option value="2" selected>기타</option></select>
+    </li>
+    <li>
+        <label for="memo">메모</label>
+        <textarea name="memo" id="memo" cols="40" rows="8" placeholder="남기실 말씀이 있다면 여기에"></textarea>
+    </li>
+</ul>
+</fieldset>
+
+<fieldset><legend>이벤트와 새로운 소식</legend>
+    <input type="radio" id="mailok" name="mail">
+    <label for="mailok">메일 수신</label>
+    <input type="radio" id="mailno" name="mail"checked>
+    <label for="mailno">메일 수신 안 함</label></fieldset>
+    <input type="submit" value="가입하기">
+    <input type="reset" value="취소"></form>
+</body>
+</html>

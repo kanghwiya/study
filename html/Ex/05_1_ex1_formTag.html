@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset><legend>기본사항</legend>
+    <form action="" >
+        ID :
+        <input type="text">
+        <br>
+        PW :
+        <input type="text">
+        <br>
+        <label for="txta">기타</label>
+        <textarea name="txta" id="txta" cols="40" rows="8"></textarea>
+        <br>
+        <select name="pocketmon" id="pocketmon">
+            <option value="0">메타몽</option>
+            <option value="1">토게피</option>
+            <option value="2">금이</option></select>
+    </form></fieldset>
+    <br>
+    <!-- maxlength는 최대 입력 글자수 제한 -->
+    <form action="" >
+        <label for="id">ID : </label>
+        <input type="text" id="id" maxlength="5" placeholder="요기는 아이디">
+        <br>
+        <label for="pw">PW : </label>
+        <input type="password" id="pw" required>
+        <!-- required 필수 입력란 , readonly 오직 읽기만 가능한 항목. value="셋팅값"과 함께 사용-->
+        <br>
+        <label for="email">email : </label>
+        <input type="email" id="email">
+        <br> 
+        <label for="number">number :</label>
+        <input type="number" id="number" min="0" max="5">
+        <br>
+        <label for="range">range :</label>
+        <input type="range" id="range" min="0" max="10">
+        <br>
+        <label for="dater">생년월일 :</label>
+        <input type="date" id="date">
+        <br>
+        <label for="banana">바나나</label>
+        <input type="checkbox" id="banana" name="chk_fruit">
+        <label for="sb">딸기</label>
+        <input type="checkbox" id="sb" name="chk_fruit">
+        <label for="wm">수박</label>
+        <input type="checkbox" id="wm" name="chk_fruit">
+        <!-- 체크박스의 name은 중복되어도 상관없다. 중복이라는 의미는 하나의 묶음이라는 의미다.
+        php가면 배운다고 하시는데, 아마 데이터 정리방식과 연관된 것일 것으로 예상. -->
+        <br>
+        <label for="zz">짜장면</label>
+        <input type="radio" id="zz" name="foods">
+        <label for="ta">탕수육</label>
+        <input type="radio" id="ta" name="foods">
+        <br>
+        <!-- <label for="input항목의 id와 통일">보일 화면 입력</label>
+        <input type="출력할때 텍스트할지, 숫자할지 등등 입력" id="label의 콤마사이와 통일. 입력칸의 이름임"> -->
+        <input type="submit" value="전송"> value가 사용가능함.
+        <input type="reset">
+        <br>
+        <button type="submit">전송</button>
+        <button type="reset">초기화</button>
+        <button type="button">버튼</button>
+        <!-- 버튼은 자바스크립트에 가면 많이 사용하는 기능 -->
+        <input type="hidden" value="히든은 value를 항상 함께 세팅해줘야함" name="hidden">
+        <!-- hidden은 유저에게 보이진 않으나, 개발자가 필요할 경우 추가
+        input 태그 할 때는 name을 항상 함께 적어줘야함 ex.password에는 password, email에는 email -->
+        
+    
+        </form>
+</body>
+</html>

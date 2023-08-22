@@ -1,0 +1,23 @@
+/* 별(*)은 전체 선택자 */
+* {
+    color: skyblue;
+}
+/* 타입 선택자: 특정 태그 이름을 가진 모든 요소 */
+h1 {
+    color: red;
+}
+
+/* 클래스 선택자 span태그를 사용. 기능은 딱히 없음*/
+.font-color {
+    color: orange;
+}
+
+/* ID 선택자는 #으로 태그함 */
+#p1 {
+    color: black;
+}
+
+/* 그룹 선택자 */
+em, strong {
+    color: purple;
+}

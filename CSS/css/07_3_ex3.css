@@ -1,0 +1,16 @@
+.tran {
+    text-transform: capitalize;
+    text-transform: uppercase;
+    text-transform: lowercase;
+}
+
+.spacing {
+    letter-spacing: 1.5em;
+}
+.w_spacing {
+    word-spacing: 10px;
+}
+.shadow {
+    text-shadow: -5px -5px 5px #1785bb ;
+}
+/* 가로, 상하, 숫자가 작을수록 스프레드효과가 작아짐, 색상 */

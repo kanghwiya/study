@@ -1,0 +1,33 @@
+
+.outline {
+    width : 650px;
+    border: solid 1px;
+}
+
+h2 {
+    color: #f00;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+p {
+    font-size: 1.2em;
+    line-height: 2em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.accent {
+    color: #0000ff;
+}
+
+.smalltext {
+    font-size: 0.7em;
+}
+
+.check {
+    color: aliceblue;
+    background-color: black;
+    text-align: left;
+    padding: 10px;
+}

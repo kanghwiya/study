@@ -1,0 +1,15 @@
+.h2-name {
+    color:cadetblue;
+}
+.h2-hex {
+    color:#5f9ea0;
+}
+.h2-rgb {
+    color: rgb(95, 158, 160);
+}
+.h2-rgba {
+    color: rgba(95, 158, 160, 0.5);
+}
+.h2-hsla {
+    color: hsl(182, 25%, 50%);
+}

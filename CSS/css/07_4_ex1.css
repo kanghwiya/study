@@ -1,0 +1,15 @@
+.cook1 {
+    list-style-type: none; /*없음*/
+    list-style-type: decimal;/* list-style-type을 사용하면 순서있는 항목으로 변한다. */
+    list-style-type: upper-alpha;/*영어소문자*/
+}
+/* https://developer.mozilla.org/en-US/docs/Web/CSS 
+https://www.w3schools.com/
+*/
+
+.cook2 {
+    list-style-position: inside; /*outside가 디폴트값*/
+}
+.cook3 {
+    list-style-image: url(../img/check2.png);
+}

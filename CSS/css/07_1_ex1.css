@@ -1,0 +1,39 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+/* '궁서체'가 없다면 'HY견고딕'을 불러와라 */
+
+.p1_size1 {
+    font-size: xx-small;
+}
+.p1_size2 {
+    font-size: medium;
+}
+.p1_size3 {
+    font-size: xx-large;
+}
+.p1_size4 {
+    /* font-size: 20px; */
+    /* font-size: 3em; 부모요소의 글자크기의 배율*/
+    /* font-size rem 최상위요소의 글자크기의 배율. 현업에서 많이씀 */
+    font-size: 10px;
+}
+.p1_size5 {
+    font-size: 1.5em;
+}
+.p1_size6 {
+  font-size: 1.5rem;
+}
+
+.p1_weight1 {
+    font-weight: 100;
+}
+.p1_weight2 {
+    font-weight: 400;
+}
+.p1_weight3 {
+    font-weight: 900;
+}

@@ -1,0 +1,16 @@
+table {
+    border: 2px solid #000;
+    /* 외곽선 */
+    border-collapse: collapse;
+    /* 칸의 여백을 없애는 기능 */
+    caption-side: bottom;
+    /* 캡션(제목)의 위치를 변경. top과 bottom이 있으며 활용도는 떨어짐 
+    그냥 텍스트를 입력하고 span을 씌워서 메인처럼 꾸미는 경우도 다수*/
+}
+th, td {
+    border: 1px dotted #000;
+    padding: 10px;
+    height: 20px;
+    width: 100px;
+    text-align: center;
+}

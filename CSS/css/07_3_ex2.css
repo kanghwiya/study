@@ -1,0 +1,21 @@
+.deco {
+    text-decoration: none;
+    /* none은 아무 효과도 없는 디폴트 */
+    text-decoration: underline;
+    text-decoration: line-through;
+}
+.height {
+    line-height: 1.5em;
+}
+.left {
+    text-align: left;
+}
+.right {
+    text-align: right;
+}
+.center {
+    background-color: cadetblue;
+    height: 300px;
+    text-align: center;
+    line-height: 300px;
+}

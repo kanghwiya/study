@@ -1,0 +1,23 @@
+div {
+    width: 400px;
+    height: 200px;
+    border: 2px solid #000
+}
+
+.div1 {
+    background: linear-gradient(
+        to right
+        , rgb(119, 10, 10) 
+        , rgba(44, 44, 159, 1)
+        , violet 30%
+        , purple
+        
+    );
+}
+.div2 {
+    background: radial-gradient(
+        circle at 0% 20%
+        , white 
+        , rgb(66, 66, 227) 50%
+    )
+}

@@ -1,0 +1,31 @@
+body {
+    background-image: url(../img/sky.jpg);
+    background-size: cover;
+    /* html을 넣어도 문제는 없으나 보통 html에는 값을 잘 주진 않음.
+    html에 적용하는 건 보통 폰트.. 정도  */
+}
+.div-img {
+    width: 1500px;
+    height: 900px;
+    border: 1px solid #000;
+    background-image: url(../img/cat.jfif)
+                            , url(../img/check.png);
+                    /* 두 번째 이미지는
+                첫 번째 이미지가 안 뜰 경우 띄우는 식 */
+    width: 600px;
+    height: 400px;
+    background-size: cover;
+    /* 가로세로 둘 중 하나에 맞춰서 나오고 잘림 */
+    background-size: contain;
+    /* 일단 하나는 반드시 나오고 남은건 바둑판 */
+    /* size 뒤에 px값 입력도 가능 */
+    background-repeat: no-repeat;
+    /* background-repeat:reapt-x or y  x를 주면 가로 축으로
+    반복되며, y를 주면 세로 축으로 반복됨
+    no repeat은 반복안함*/
+    background-size: 400px;
+    background-position: top 20% left 30%;
+
+    /* overflow: scroll; 이미지 스크롤x, content 스크롤임
+    글자 넣으면 작동..*/
+}

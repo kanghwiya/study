@@ -1,0 +1,40 @@
+body {
+    background-color: black;
+}
+.div {
+    background-color: white;
+    padding: 30px;
+    width: 500px;
+    height: 800px;
+    margin: 0 auto;
+    background-size: 500px;
+    background-repeat: no-repeat;
+    background-image: url(../img/cat.jfif);
+    background-position: right bottom;
+
+    /* background: 색, url, no repeat right bottom / 70% */
+}
+ul {
+    list-style-type: none;
+    line-height: 2rem;
+    font-weight: bold
+}
+.span {
+    color: rgb(156, 19, 19);
+    font-size: 20px;
+    font-weight: 800;
+}
+
+h1 {
+    color: aliceblue;
+    text-align: center;
+    /* width: 400px;
+    margin: auto; */
+    padding: 30px;
+    background-color: rgb(47, 17, 17);
+}
+h2 {
+    font-style: italic;
+    font-weight: 800;
+    text-align: center;
+}

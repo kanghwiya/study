@@ -1,0 +1,9 @@
+h1 {
+    background-color: rgb(167, 160, 160);
+    border: 10px dotted rgba(0, 0, 0);
+    background-clip: padding-box;
+    background-clip: content-box;
+    width: 200px;
+    height: 100px;
+    padding: 30px;
+}

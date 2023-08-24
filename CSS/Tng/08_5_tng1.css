@@ -1,0 +1,24 @@
+.main {
+    position: relative;
+    width: 700px;
+    height: 700px;
+    border: 1px solid #000;
+}
+.position1, .position2, .position3 {
+    width: 200px;
+    height: 200px;
+    border: 1px solid #000;
+    position: absolute;
+}
+.position1 {
+    top: 40px;
+    left: 50px;
+}
+.position2 {
+    top: 200px;
+    left: 400px;
+}
+.position3 {
+    top: 300px;
+    left: 50px;
+}

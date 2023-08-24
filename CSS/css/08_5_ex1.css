@@ -1,0 +1,64 @@
+* {
+    font-family: Arial, sans-serif;
+}
+
+main, section, article {
+    padding: 20px;
+}
+main {
+    background-color: slategrey;
+}
+section {
+    background-color: antiquewhite;
+}
+article {
+    background-color: rgb(149, 130, 149);
+    height: 1000px;
+    position: relative;
+}
+.div_static {
+    background-color: cadetblue;
+    position: static;
+}
+.div_relative {
+    background-color: darkgoldenrod;
+    left: -30;
+    position: relative;
+    /* top: -5px; */
+}
+.div_absolute {
+    background-color: rgb(241, 190, 198);
+    position: absolute;
+    top: 0;
+    right: 0;
+    
+}
+.div_fixed {
+    background-color: indianred;
+    position: fixed;
+    bottom: 0;
+    /* fixed는 뷰포트를 기준으로 움직인다. */
+}
+.div_sticky {
+    background-color: lightcoral;
+    position: sticky;
+    top: 0;
+}
+.zindex1 {
+    background-color: rgb(142, 138, 212);
+    width: 200px;
+    position: absolute;
+    z-index: 1;
+}
+.zindex2 {
+    background-color: rgb(47, 44, 97);
+    width: 150px;
+    position: absolute;
+    z-index: 2;
+}
+.zindex3 {
+    background-color: rgb(164, 199, 215);
+    width: 100px;
+    position: absolute;
+    z-index: 3;
+}

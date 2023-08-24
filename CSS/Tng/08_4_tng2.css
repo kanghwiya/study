@@ -1,0 +1,34 @@
+.top {
+    width: 1000px;
+    /* top 빼고 header,main,footer를 그냥 태그해서 */
+}
+.side_1, .side_2, article {
+    height: 700px;
+}
+header {
+    width:100%;
+    height: 100px;
+    background-color: rgb(192, 206, 232);
+}
+
+.side_1 {
+    width: 150px;
+    float: left;
+    background-color: thistle;
+}
+article {
+    width: 750px;
+    float: left;
+    background-color: slateblue;
+}
+.side_2 {
+    width: 100px;
+    float: left;
+    background-color: silver;
+}
+footer {
+    width: 100%;
+    height: 100px;
+    background-color: slategray;
+    clear: both;
+}

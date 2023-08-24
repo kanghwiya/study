@@ -1,0 +1,25 @@
+.container_1 {
+    border: 5px solid #000;
+    width: 400px;
+    margin: 20px 10px;
+    /* margin의 순서는 상하, 좌우 */
+}
+.container_2 {
+    border: 5px solid #e48f8f;
+    width: 400px;
+    margin: 20px;
+}
+
+h1, p {
+    border: 1px solid #000;
+    width: 150px;
+    margin: 10px auto;
+}
+/* auto는 중앙정렬 
+magin-left,right,top,bottom 으로 각각 세팅도 가능*/
+
+span {
+    border: 1px solid #000;
+    width: 150px;
+    margin: 10px;
+}

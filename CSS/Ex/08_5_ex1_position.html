@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/08_5_ex1.css">
+</head>
+<body> <!--body의 크기는 뷰포트의 크기=화면의 크기=html의 크기 -->
+    <main>
+        main
+            <section>
+                    section
+                        <article>
+                            article
+                                <div class="div_static">static</div>
+                                <div class="div_relative">relative</div>
+                                <div class="div_absolute">absolute</div>
+                                <div class="div_fixed">fixed</div>
+                                <div class="div_sticky">sticky</div>
+                                
+                                <div class="zindex1">1</div>
+                                <div class="zindex2">2</div>
+                                <div class="zindex3">3</div>
+                        </article>
+            </section>
+    </main>
+    <!-- absolute는 상위 relative를 기준으로 붙는데,
+    만약 좌표값을 주지 않으면 붕 뜬 상태(absolute만 레이어분리를
+    했다고 생각하면 편할듯)가 된다.
+    만약 상위 position:relative값이 없으면 <body>를 기준으로 움직인다.-->
+</body>
+</html>

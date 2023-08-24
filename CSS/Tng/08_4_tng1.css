@@ -1,0 +1,13 @@
+ul {
+    list-style: none;
+    /* display: flex; */
+}
+.li {
+    display: inline-block;
+    background-color: gray;
+    padding: 40px;
+    margin-right: -6px;
+}
+
+/* width, height, line-height, text-align:center
+를 이용하여 가능*/

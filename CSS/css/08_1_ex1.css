@@ -1,0 +1,29 @@
+
+.div-1 {
+    box-sizing: border-box;
+    width: 150px;
+    height: 150px;
+    border: 5px solid #000;
+    padding: 20px;
+    margin: 10px;
+    background-color: beige;
+}
+.div-2 {
+    box-sizing: content-box;
+    width: 150px;
+    height: 150px;
+    border: 5px solid #000;
+    padding: 20px;
+    margin: 10px;
+    background-color: beige;
+}
+.div-3 {
+    width: 150px;
+    height: 150px;
+    border: 5px solid #000;
+    padding: 20px;
+    margin: 10px;
+    background-color: beige;
+    box-shadow: 10px 10px 10px 10px #81808f inset;
+    /* 좌우, 상하, , 스프레드 */
+}

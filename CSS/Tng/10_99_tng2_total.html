@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./10_99_tng2_total.css">
+</head>
+<body>
+    
+    <fieldset>
+        <legend><h1>I want YOU!</h1></legend>
+            <form action="http://www.naver.com">
+                <ul>
+                    <li>
+                        <label for="name">이름</label>
+                        <input class="line" type="text" id="name" required>
+                    </li>
+                    <li>
+                        <label for="age">나이</label>
+                        <input class="line" type="number" id="age" min="20" max="130" required>
+                    </li>
+                    <li>
+                        성별
+                        <input type="radio" name="sex" id="male" required>
+                        <label for="male">남자</label>
+                        <input type="radio" name="sex" id="female" >
+                        <label for="female">여자</label>
+                    </li>
+                    <li class="line1">
+                        <label for="textarea1">요청사항</label>
+                        <textarea class="line" namse="request" id="textarea1" cols="30" rows="10"></textarea>
+                    </li>
+                </ul>
+                    <br>
+                <div class="notice">
+                    <input type="submit" value="보내기">
+                    <div class="hidden"> 내용을 다시 한 번 확인해주세요.</div>
+                    <!-- div로 내용을 작성하는 대신 CSS에서 자체적으로 새로 만들 수 있음.
+                    CSS 참조 -->
+                </div>
+            </form>        
+    </fieldset>
+</body>
+</html>

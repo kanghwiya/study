@@ -1,0 +1,55 @@
+
+body {
+    margin: 0;
+    padding: 0;
+}
+fieldset {
+    width: 400px;
+    margin: 0 auto;
+    background-image: url(../img/cat.jfif);
+    font-weight: 600;
+    background-size: 400px;
+}
+ul {
+    list-style-image: url(../img/check2.png);
+    line-height: 2em;
+}
+h1 {
+    color: rgb(240, 82, 124);
+    font-weight: 600;
+}
+input:checked + label {
+    color: red;
+    font-weight: 800;
+}
+input[type=text], input[type=number], textarea {
+    background-color: transparent;
+}
+.line:focus {
+    outline: none;
+    border: 2px solid rgb(216, 8, 8);
+}
+/* 그냥 :focus로도 작동함 */
+textarea {
+    vertical-align: top;
+}
+.line1 {
+    list-style: none;
+}
+.notice:hover .hidden{
+    background-color: black;
+    color: aliceblue;
+    display: inline-block;
+}
+.hidden {
+    display: none;
+}
+/* 
+#id:hover::after
+contet: "내용을 "?
+backgroundcolor:
+color:
+font 색, 크기
+position:absolute
+top:0px
+left: 56px */

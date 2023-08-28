@@ -1,0 +1,24 @@
+.container {
+    background-color: gray;
+    margin: 10px;
+    width:  60vW;
+    height: 60vW;
+    display: flex;
+    flex-direction: row;
+    /* flex-direction의 기본값은 row
+    column도 존재*/
+    flex-wrap: wrap;
+    /* reverse도 있음. 상하 뒤집기그러나 되도록 안쓰는게 좋음
+    nowrap은 잘 사용하지 x , 보통 wrap 값을 많이 사용*/
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    /* 기본값 flex-start */
+    align-items: stretch;
+    /* 기본값 flex-start */
+}
+.item {
+    width: 15vW;
+    height: 15vw;
+    background-color: rgb(144, 144, 94);
+    border: 1px solid rgb(42, 37, 37);
+}

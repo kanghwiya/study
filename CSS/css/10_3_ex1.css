@@ -1,0 +1,78 @@
+a {
+    color: rgb(90, 171, 205);
+}
+
+a:link {
+    color: chocolate;
+}
+/* 아직 방문한 적이 없는 링크에 css를 줄 수 있음 */
+
+a:visited {
+    color: teal;
+}
+/* 이미 방문한 경우 */
+ㄱ
+a:hover {
+    background-color: rgb(233, 217, 233);
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    margin: 10px;
+    padding: 10px;
+    line-height: 2rem;
+}
+
+#input-1:active {
+    border-color: salmon;
+}
+
+#input-1:focus {
+    outline: none;
+    border: 3px solid rgb(213, 201, 227);
+}
+
+input:checked+label {
+    color: orange;
+}
+
+#target-1:target{
+    background-color: thistle;
+}
+
+
+.container :nth-child(3) {
+    color: slateblue;
+}
+
+.container p:nth-of-type(1) {
+    color: cadetblue;
+}
+/* 자식 태그 중 p태그의 첫번째 */
+
+.container :not(p){
+    color: sienna;
+}
+
+#label-2::after {
+    /* after을 before로 변경하면 글씨 위치가 앞으로 변경된다. */
+    content: " 필수 입력사항입니다. ";
+    font-size: 0.5rem;
+    color: slateblue;
+}
+
+#input-2:focus {
+    outline: none;
+    border: 3px solid rgb(213, 201, 227);
+}
+
+.korean-1::first-letter {
+    background-color: skyblue;
+}
+
+.korean-2::first-line {
+    background-color: skyblue;
+}

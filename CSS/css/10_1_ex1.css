@@ -1,0 +1,17 @@
+header div span {
+    color: rgb(10, 152, 171);
+
+}
+/* 헤더 안에 있는 모든 span에 적용 */
+header>span {
+    color: slategray;
+}
+/* 자식요소만 선택 */
+main span+p {
+    color: coral;
+}
+/* 인접한 형제 요소 + 적용하고 싶은 태그
+span이 기준임 */
+span~p {
+    color: rgb(74, 150, 7);
+}

@@ -1,0 +1,20 @@
+
+.container {
+    background-color: gray;
+    width:  300px;
+    height: 300px;
+    margin: 10px;
+}
+.item {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(144, 144, 94);
+    border: 1px solid rgb(42, 37, 37);
+    box-sizing: border-box;
+    display: inline-block;
+    /* float: left; */
+}
+#item1 {
+    background-color: transparent;
+    border: none;
+}

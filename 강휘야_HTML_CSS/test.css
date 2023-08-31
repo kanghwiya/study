@@ -1,0 +1,103 @@
+@import url(https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap);
+  
+*{
+    margin: 0;
+    padding: 0;
+    font-family:'Sedgwick Ave Display','cursive';
+    box-sizing: border-box;
+}
+header {
+    color: #ffffff;
+    background-image: url(./img/img_1.jpg);
+    background-size: cover;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px, 1fr));
+    grid-gap: 20px 20px;
+    padding: 30px;
+}
+.headerdiv {
+    display: inline-block;
+    margin: 100px;
+    min-width: 300px;
+}
+h1 {
+    font-size: 4rem;
+    display: inline-block;
+    margin: 100px;
+}
+.headerdiv a {
+    background-color: rgb(239, 168, 55);
+    color: #ffffff;
+    padding: 10px;
+    font-size: 1.0rem;
+    border-radius: 5px;
+    text-decoration-line: none;
+    display: inline-block;
+}
+.headerdiv p {
+    width: 100%;
+    font-size: 1.5rem;
+    padding-bottom: 50px;
+}
+article a {
+    background-color: rgb(239, 168, 55);
+    color: #ffffff;
+    padding: 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    display: inline-block;
+    text-align: center;
+    text-decoration-line: none;
+}
+a:hover {
+    opacity: 0.7;
+    transition: 0.5s;
+}
+
+article p {
+    color: #000000;
+    padding: 20px 10px;
+}
+.box {
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    border: 1px solid #E2E2E2;
+    margin: 5px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+main>article>figure {
+    width: 100%;
+    position: relative;
+}
+main>article>figure>figcaption {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+}
+img {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+footer {
+    background-color: #333;
+    color: #ffffff;
+    font-size: 0.75rem;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    padding: 30px 0;
+    text-align: center;
+
+}

@@ -182,4 +182,5 @@ FROM (
 ) AS emp;
 
 -- mariadb 설치 : windows powershell
-cd + 경로 복붙
+-- csalariesd + 경로 복붙
+

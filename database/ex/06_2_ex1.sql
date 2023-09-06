@@ -5,7 +5,7 @@ SELECT emp_no, title FROM titles;
 
 SELECT * from employees WHERE first_name = 'Mary';
 SELECT * FROM employees WHERE birth_date >= 19600101;
-
+members
 SELECT * 
 FROM employees
 WHERE birth_date >= 19600101

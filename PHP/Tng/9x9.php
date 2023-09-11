@@ -10,8 +10,7 @@ for($num = 1; $num <=9; $num++){
 // 1,9단 출력
 
 // for($num = 1; $num <=9; $num++){
-//     if( $num == $num2 ){
-//         $num2 > 2;
+//     if( $num === 1 || $num === 9 ){
 //     }
 //     echo $num, "단\n";
 //     for($num1 = 1; $num1 <=9; $num1++){

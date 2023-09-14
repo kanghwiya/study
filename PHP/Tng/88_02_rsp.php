@@ -1,54 +1,101 @@
 <?php
+echo "가위바위보 게임\n
+가위바위보를 입력해주세요.\n\n";
 
-$in_str = fgets(STDIN);
+$user_str = fgets(STDIN);
 
 
 // 1가위
-// 2주먹
+// 바위
 // 3보
 
-echo "가위바위보 게임\n
-    가위는 1, 바위는 2, 보는 3을 입력해주세요.\n";
+
+// echo "입력값 : {$user_str}";
 
 $random = rand(1,3);
 
-if($in_str == 1 || $in_str == 2 || $in_str == 3){
-    if ($random == $in_str){
-        echo " Computer : {$random}\n
-            You : {$in_str}\n
-            Drawn";
-        }
-        else if($random == 1 && $in_str == 3){
-            echo " Computer : {$random}\n
-                You : {$in_str}\n
-                You Lose";
-        }
-        else if($random == 3 && $in_str == 1){
-            echo " Computer : {$random}\n
-                You : {$in_str}\n
-                You Win";
-        }
-        else if($random == 1 && $in_str == 2){
-            echo " Computer : {$random}\n
-                You : {$in_str}\n
-                You Win";
-        }
-        else if($random == 2 && $in_str == 3){
-            echo " Computer : {$random}\n
-                You : {$in_str}\n
-                You Win";
-        }
-        else {
-            echo " Computer : {$random}\n
-                You : {$in_str}\n
-                You Lose";
-        }
+$user_str = array("가위" => 1, "바위" => 2, "보" => 3);
+
+//배열값 출력하는 함수를 대입하기..
+
+if($random === 1){
+    $rand = "가위";
 }
-else {
-    echo "1, 2, 3만 입력해주세요.";
+if($random === 2){
+    $rand = "바위";
+}
+if($random === 3){
+    $rand = "보";
 }
 
-echo "입력값 : {$in_str}";
+echo "컴퓨터 : {$rand}";
+
+if($user_str == 1 || $user_str == 2 || $user_str == 3){
+if ($random == $user_str){
+echo " 
+    Drawn";
+}
+else if($random == 1 && $user_str == 3){
+echo " 
+You Lose";
+}
+else if($random == 3 && $user_str == 1){
+echo " 
+You Win";
+}
+else if($random == 1 && $user_str == 2){
+echo " 
+You Win";
+}
+else if($random == 2 && $user_str == 3){
+echo " 
+You Win";
+}
+else {
+echo " 
+You Lose";
+}
+
+        
+}
+else {
+    echo "잘못된 입력입니다.";
+}
+
+// str_replace(1, "가위", $random);
+// str_replace(2, "바위", $random);
+// str_replace(3, "보", $random);
+
+// str_replace(1, "가위", $user_str);
+// str_replace(2, "바위", $user_str);
+// str_replace(3, "보", $user_str);
+
+
+// switch($random){
+//     case 1 :
+//         $user_str = "가위";
+//         break;
+//     case 2 :
+//         $user_str = "바위";
+//         break;
+//     case 3 :
+//         $user_str = "보";
+//         break;
+// }
+
+switch($user_str){
+    case 1 :
+        $user_str = "가위";
+        break;
+    case 2 :
+        $user_str = "바위";
+        break;
+    case 3 :
+        $user_str = "보";
+        break;
+}        
+
+
 
 // }
 

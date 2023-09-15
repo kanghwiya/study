@@ -32,3 +32,6 @@ do {
     echo "ttt";
 }
 while($i < 0);
+
+$result = array("가위" => 1, "바위" => 2, "보" => 3);
+$result["가위"];

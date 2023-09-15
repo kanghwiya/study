@@ -8,7 +8,7 @@ $arr1 = array(
     ,"딸기케이크"
 );
 
-echo $arr[2];
+echo $arr1[2];
 
 $arr2 = [
     "딸기팬케이크" => "밀가루"
@@ -17,7 +17,7 @@ $arr2 = [
     ,"딸기케이크" => "계란"
 ];
 
-var_dump($arr2["딸기라떼"]);
-echo $arr1["파스타"]
+var_dump($arr1);
+print_r($arr2);
 
 ?>

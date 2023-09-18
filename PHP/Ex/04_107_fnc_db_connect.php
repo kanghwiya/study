@@ -42,6 +42,6 @@ $conn = new PDO($db_dns, $db_user, $db_pw, $db_options);
 // 리턴		:없음
 // -------------------------------------
 
-function db_destroy_conn(&$conn){
-	$conn = null;
-} //함수 파기
+// function db_destroy_conn(&$conn){
+// 	$conn = null;
+// } //함수 파기

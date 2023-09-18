@@ -47,3 +47,19 @@ FLUSH PRIVILEGES;
 
 
 DELETE FROM departments WHERE dept_no = 'd101'
+
+INSERT INTO employees (
+			emp_no
+			,birth_date
+			,first_name
+			,last_name
+			,gender
+			,hire_date
+			,sup_no)
+		VALUES(
+			500001
+			,'1999-05-21'
+			,'Hwiya'
+			,'Kang'
+			,'2023-09-18'
+			,NULL);

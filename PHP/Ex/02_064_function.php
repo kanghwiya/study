@@ -64,3 +64,23 @@ my_args_param("a", "b", "C");
 //    $items = func_get_args();
 // }
 // my_args_param("a", "b", "C");
+
+
+
+//레퍼런스 파라미터
+
+function test1( $str ) {
+    $str = "함수 test1";
+    return $str;
+}
+// function test2( &$str ) {
+//     $str = "함수 test5";
+//     return $str;
+// }
+
+$str = "?020";
+// test1( $str );
+$result = test1( $str );
+echo $str,"\n";
+echo $result;
+

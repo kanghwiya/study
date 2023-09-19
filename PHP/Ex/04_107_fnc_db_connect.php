@@ -32,6 +32,7 @@ $db_options = [
 	//연상배열로 Fetch를 하도록 설정
 	,PDO::ATTR_DEFAULT_FETCH_MODE		=>PDO::FETCH_ASSOC
 ];
+
 $conn = new PDO($db_dns, $db_user, $db_pw, $db_options);
 }
 

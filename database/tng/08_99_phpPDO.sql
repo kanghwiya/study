@@ -41,7 +41,8 @@ INSERT INTO departments (
 		);
 
 
-SELECT * FROM departments;
+SELECT * FROM employees
+WHERE emp_no = 700000;
 
 FLUSH PRIVILEGES;
 
@@ -55,11 +56,51 @@ INSERT INTO employees (
 			,last_name
 			,gender
 			,hire_date
-			,sup_no)
+			,sup_no
+)
 		VALUES(
 			500001
-			,'1999-05-21'
+			,19990521
 			,'Hwiya'
 			,'Kang'
-			,'2023-09-18'
-			,NULL);
+			,'F'
+			,20230918
+			,NULL
+);
+
+DELETE from employees
+WHERE emp_no = 500001;
+
+SELECT emp_no, salary
+FROM salaries
+WHERE to_date >=230919
+AND salary >= 100000
+ORDER BY emp_no DESC;
+
+INSERT INTO employees
+VALUES (
+	700000
+	,20000101
+	,'first'
+	,'last'
+	,'M'
+	,20230919
+	,NULL
+);
+COMMIT;
+
+
+SELECT emp.*
+FROM employees AS emp
+LEFT OUTER JOIN titles AS tit
+		ON emp.emp_no = tit.emp_no
+WHERE tit.emp_no IS NULL;
+
+
+INSERT INTO titles
+VALUES(
+700000
+,'Staff'
+,20230919
+,99990101
+);

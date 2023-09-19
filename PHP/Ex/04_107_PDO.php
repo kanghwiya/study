@@ -104,7 +104,8 @@ $sql = "SELECT"
 
 	$SQL = "DELETE FROM"
 	." 			departments "
-	." 		WHERE dept_no = :dept_no";
+	." 		WHERE "
+	." 			dept_no = :dept_no";
 
 	$arr_ps = [
 		":dept_no" => "d010"
@@ -114,6 +115,7 @@ $sql = "SELECT"
 	$result = $stmt -> execute($arr_ps); //실제로 sql을 실행
 	$res_cnt = $stmt->rowCount();
 	var_dump($res_cnt);
+	
 	if($res_cnt >= 2){
 		$obj_conn->rollBack(); //롤백
 		echo "rollBack";

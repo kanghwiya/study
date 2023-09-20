@@ -68,8 +68,8 @@ INSERT INTO employees (
 			,NULL
 );
 
-DELETE from employees
-WHERE emp_no = 500001;
+DELETE from titles
+WHERE emp_no = 700000;
 
 SELECT emp_no, salary
 FROM salaries
@@ -79,7 +79,7 @@ ORDER BY emp_no DESC;
 
 INSERT INTO employees
 VALUES (
-	700000
+	700001
 	,20000101
 	,'first'
 	,'last'
@@ -95,6 +95,13 @@ FROM employees AS emp
 LEFT OUTER JOIN titles AS tit
 		ON emp.emp_no = tit.emp_no
 WHERE tit.emp_no IS NULL;
+
+SELECT emp.emp_no
+FROM employees emp
+WHERE NOT EXISTS (
+SELECT 1
+FROM titles tit
+WHERE emp.emp_no = tit.emp_no);
 
 
 INSERT INTO titles

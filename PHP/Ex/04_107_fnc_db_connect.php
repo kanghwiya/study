@@ -23,6 +23,7 @@ function my_db_conn( &$conn ){
 	$db_charset = "utf8mb4"; //charset
 	$db_dns = "mysql:host =" .$db_host.";dbname=".$db_name.";charset".$db_charset;
 
+try {
 
 $db_options = [
 	//DB의 Prepared Statement 기능을 사용하도록 설정
@@ -34,8 +35,19 @@ $db_options = [
 ];
 
 $conn = new PDO($db_dns, $db_user, $db_pw, $db_options);
+	} catch ( Exception $e ) {
+		$conn = null;
+		return false;
+	}
+		return true; // finally 적용할 구문이 없기 때문에 제외
+	
 }
 
+$conn = null;
+if ( !my_db_conn($conn)){
+	echo "db connect error";
+	exit; // 처리를 여기서 끝내겠다.
+}
 // -------------------------------------
 // 함수명	:my_db_conn
 // 기능		:DB Destroy

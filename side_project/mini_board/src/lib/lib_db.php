@@ -1,7 +1,7 @@
 <?php
 
 function my_db_conn( &$conn ){
-	$db_host = "localhoset"; //host
+	$db_host = "localhost"; //host
 	$db_user = "root"; //user
 	$db_pw = "php504"; //password
 	$db_name = "mini_board"; // DB name

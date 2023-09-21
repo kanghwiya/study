@@ -49,4 +49,4 @@ echo my_all_sum(2, 3, 6, 7, 8, -6);
 
 
 //레퍼런스 파라미터
-pass by reference;
+// pass by reference;

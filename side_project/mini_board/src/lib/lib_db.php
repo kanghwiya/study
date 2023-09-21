@@ -31,7 +31,7 @@ function db_destroy_conn($conn){
 	$conn = null;
 }
 
-function db_select_boards_paging($conn){
+function db_select_boards_paging($conn, &$arr_param){
 	try {
 		$sql =
 		" SELECT "
@@ -42,17 +42,73 @@ function db_select_boards_paging($conn){
 		."		boards "
 		."	ORDER BY "
 		."			id DESC "
+		."	LIMIT :list_cnt OFFSET :offset"
 	;
-		$arr_ps=[];
-
+		$arr_ps=[
+			":list_cnt" => $arr_param["list_cnt"]
+			,":offset" => $arr_param["offset"]
+		];
+		
 		$stmt = $conn->prepare($sql);
 		$stmt->execute($arr_ps);
 		$result = $stmt->fetchAll();
 		return $result; // 정상
+
 
 	} catch( Exception $e) {
 		return false; //예외발생
 	}
 }
 
+
+function db_select_boards_cnt(&$conn){
+		$sql =
+		" 	SELECT "
+		."			COUNT(id) as cnt " //as 줘야 값을 가져오기 쉬움
+		."	FROM "
+		."			boards "
+		;
+		
+	try {
+		$stmt = $conn->query($sql);
+		$result = $stmt->fetchAll();
+		return (int)$result[0]["cnt"]; //정상
+
+	} catch( Exception $e) {
+		return false; //예외발생
+	}
+
+}
+
+
+function db_insert_boards(&$conn, &$arr_param) {
+		$sql = " INSERT INTO boards ( "
+		."			title "
+		."			,content "
+		." ) "
+		." VALUES ( "
+		."		:title "
+		."		,:content "
+		." ) "
+		;
+$arr_ps = [
+	":title" => $arr_param["title"]
+	,":content" => $arr_param["content"]
+];
+
+try{
+	$stmt = $conn->prepare($sql);
+	$result = $stmt->execute($arr_ps);
+	return $result; //$result 값 자체가 boolean
+}catch(Exception $e){
+	return false;
+}
+
+}
+
+// TODO : 나중에 지울것
+// $conn = null;
+// my_db_conn($conn);
+// echo db_select_boards_cnt( $conn );
+// $conn = null;
 ?>

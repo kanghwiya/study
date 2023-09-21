@@ -1,16 +1,55 @@
 <?php
 	define("ROOT", $_SERVER["DOCUMENT_ROOT"]."/mini_board/src/");
+	define("FILE_HEADER", ROOT."header.php");
 	require_once(ROOT."lib/lib_db.php");
+
 	$conn = null;
 
-//DB 접속
+	//DB 접속
 	if(!my_db_conn($conn)){
 		echo "DB Error : PDO Instance";
 		exit;
 	}
 
+
+	//페이징 처리
+	$list_cnt = 5; //한 페이지 최대 표시 수
+	$page_num = 1; //페이지 번호 초기화
+	$boards_cnt = db_select_boards_cnt($conn);
+	if($boards_cnt === false){
+		echo "DB Error : SELECT Count";
+		exit;
+	}
+
+
+	$max_page_num = ceil($boards_cnt / $list_cnt ); //최대 페이지 수
+	if(isset($_GET["page"])){
+		$page_num = $_GET["page"]; //유저가 보내온 페이지 세팅
+	};
+
+	$offset = ($page_num - 1) * $list_cnt;
+
+	//이전 버튼, 다음 버튼 설정
+	$prev_page_num = $page_num - 1;
+	if($prev_page_num === 0){
+		$prev_page_num = 1;
+	}
+	
+	$next_page_num = $page_num + 1;
+	if($next_page_num > $max_page_num){
+		$next_page_num = $max_page_num;
+	}
+
+
+	//DB 조회시 사용할 데이터 배열
+	$arr_param = [
+		"list_cnt" => $list_cnt
+		,"offset" => $offset
+	];
+
+
 //게시글 리스트 조회
-$result = db_select_boards_paging($conn);
+$result = db_select_boards_paging($conn, $arr_param);
 if(!$result){
 	echo "DB Error : SELECT boards";
 	exit;
@@ -25,59 +64,49 @@ if(!$result){
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
-	<link rel="stylesheet" href="./css/common.css">
+	<link rel="stylesheet" href="/mini_board/src/css/common.css"> <!-- 로 시작하면 아파치의 hdocs 파일에서 시작하는 경로 -->
 </head>
 <body>
-	<header>
-		<h1>mini Board</h1>
-	</header>
+	<?php 
+	require_once(FILE_HEADER);
+	?>
 	<main>
 		<table>
 			<colgroup>
-				<col width="15%">
-				<col width="55%">
+				<col width="18%">
+				<col width="52%">
 				<col width="30%">
 			</colgroup>
 			<tr class="table-title">
-				<th>번호</th>
+				<th class="border-left">번호</th>
 				<th>제목</th>
-				<th>작성일자</th>
+				<th class="border-right">작성일자</th>
 			</tr>
-			<tr>
-				<td>5</td>
-				<td>5번게시글</td>
-				<td>2023/09/20 13:01</td>
-			</tr>
-			<tr>
-				<td>4</td>
-				<td>4번게시글</td>
-				<td>2023/09/20 12:23</td>
-			</tr>
-			<tr>
-				<td>3</td>
-				<td>3번게시글</td>
-				<td>2023/09/19 07:18</td>
-			</tr>
-			<tr>
-				<td>2</td>
-				<td>2번게시글</td>
-				<td>2023/09/11 09:23</td>
-			</tr>
-			<tr>
-				<td>1</td>
-				<td>1번게시글</td>
-				<td>2023/09/10 23:50</td>
-			</tr>
+			<?php
+			//리스트를 생성
+				foreach($result as $item){
+			?>
+				<tr>
+					<td><?php echo $item["id"];	?></td>
+					<td><?php echo $item["title"];	?></td>
+					<td><?php echo $item["create_at"];	?></td>
+				</tr>
+			<?php
+				}
+			?>
 		</table>
 		<section>
-			<a href="#">이전</a>
-			<a href="#">1</a>
-			<a href="#">2</a>
-			<a href="#">3</a>
-			<a href="#">4</a>
-			<a href="#">5</a>
-			<a href="#">다음</a>
+			<a class="page-btn" href="/mini_board/src/list.php/?page=<?php echo $prev_page_num ?>">이전</a>
+			<?php 
+				for($i = 1; $i <= $max_page_num; $i++){
+			?>
+				<a class="page-btn" href="/mini_board/src/list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+			<?php
+				}
+			?>
+			<a class="page-btn" href="/mini_board/src/list.php/?page=<?php echo $next_page_num ?>">다음</a>
 		</section>
+		<a class="page-btn" href="/mini_board/src/insert.php">글쓰기</a>
 	</main>
 </body>
 </html>

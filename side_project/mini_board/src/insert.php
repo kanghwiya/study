@@ -52,7 +52,6 @@ if($http_method === "POST"){
 </head>
 <body>
 	<?php
-
 		require_once(FILE_HEADER);
 	?>
 	<form action="/mini_board/src/insert.php" method="post">

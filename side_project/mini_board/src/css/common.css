@@ -12,7 +12,7 @@ body {
 	margin:0;
 	padding:0;
 	background-image: url(../../doc/pngegg.png);
-	background-size: 1200px;
+	background-size: 1000px;
 	background-repeat: no-repeat;
 	background-position: center 120px;
 }
@@ -33,7 +33,7 @@ table {
 	border-collapse: collapse;
 	width: 700px;
 	height: 500px;
-	margin: 50px auto;
+	margin: 50px auto 20px;
 	font-size: 1.3rem;
 }
 .border-left {
@@ -77,4 +77,13 @@ a {
 	color: #ffffff;
 	border-radius: 18px;
 	font-weight: 800;
+
 };
+.page-btn:hover {
+	color: rgb(154, 154, 154);
+}
+ /* .page-btn:active {
+	background-color: rgb(154, 154, 154);
+	color:#1d1c1d;
+	transition: background-color 0.2s;
+} */

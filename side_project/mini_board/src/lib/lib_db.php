@@ -82,7 +82,7 @@ function db_select_boards_cnt(&$conn){
 
 
 function db_insert_boards(&$conn, &$arr_param) {
-		$sql = " INSERT INTO boards ( "
+	try{ $sql = " INSERT INTO boards ( "
 		."			title "
 		."			,content "
 		." ) "
@@ -96,7 +96,6 @@ $arr_ps = [
 	,":content" => $arr_param["content"]
 ];
 
-try{
 	$stmt = $conn->prepare($sql);
 	$result = $stmt->execute($arr_ps);
 	return $result; //$result 값 자체가 boolean
@@ -111,4 +110,35 @@ try{
 // my_db_conn($conn);
 // echo db_select_boards_cnt( $conn );
 // $conn = null;
+
+function db_select_boards_id( &$conn, &$arr_param ) {
+	
+	$sql = " SELECT "
+	."			id "
+	."			,title "
+	."			,content "
+	."			,create_at "
+	."		FROM "
+	."			boards "
+	."		WHERE "
+	."			id = "
+	."			:id "
+	;
+
+	$arr_ps = [
+		":id" => $arr_param["id"]
+	];
+
+	try {
+		$stmt = $conn->prepare($sql);
+		$stmt->execute($arr_ps);
+		$result = $stmt->fetchAll();
+		return $result;
+	} catch (Exception $e){
+		echo $e->getMessage();
+		return false;
+	}
+}
+
+
 ?>

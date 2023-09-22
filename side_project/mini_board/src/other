@@ -1,0 +1,9 @@
+D:\workspace\nim\side_project\mini_board\src
+
+C:\Apache24\htdocs\mini_board\src
+
+xcopy 원본경로 복사할경로 /E /Y
+
+xcopy D:\workspace\nim\side_project\mini_board\src C:\Apache24\htdocs\mini_board\src /E /Y
+
+터미널에 입력하면 복붙됨

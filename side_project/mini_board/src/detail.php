@@ -64,26 +64,33 @@ $item = $result[0];
 	<?php 
 		require_once(FILE_HEADER);
 	?>
-	<table>
-		<tr>
-			<th>글 번호</th>
+	<table class="detail_table">
+		<colgroup>
+				<col width="20%">
+				<col width="82%">
+		</colgroup>
+		
+		<tr class="detail">
+			<th >글 번호</th>
 			<td><?php echo $item["id"];?></td>
 		</tr>
-		<tr>
+		<tr class="detail">
 			<th>제목</th>
 			<td><?php echo $item["title"];?></td>
 		</tr>
-		<tr>
-			<th>내용</th>
-			<td><?php echo $item["content"];?></td>
-		</tr>
-		<tr>
+		<tr class="detail">
 			<th>작성일자</th>
 			<td><?php echo $item["create_at"]?></td>
 		</tr>
+		<tr class="detail_cont" >
+			<th>내용</th>
+			<td style="word-break:break-all"><?php echo $item["content"];?></td>
+		</tr>
 	</table>
-	<a href="#">수정</a>
-	<a href="/mini_board/src/list.php/?page=<?php echo $page; ?>">취소</a>
-	<a href="#">삭제</a>
+	<div class="deatil-btn">
+			<a href="#">수정</a>
+			<a href="/mini_board/src/list.php/?page=<?php echo $page; ?>">취소</a>
+			<a href="#">삭제</a>
+	</div>
 </body>
 </html>

@@ -74,6 +74,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
+	
 	<link rel="stylesheet" href="/mini_board/src/css/common.css"> <!-- 로 시작하면 아파치의 hdocs 파일에서 시작하는 경로 -->
 </head>
 <body>
@@ -96,7 +97,7 @@
 			//리스트를 생성
 				foreach($result as $item){
 			?>
-				<tr>
+				<tr class="list-font">
 					<td><?php echo $item["id"];	?></td>
 					<td>
 						<a href="/mini_board/src/detail.php/?id=<?php echo $item["id"];	?>&page=<?php echo $page_num;?>">
@@ -110,17 +111,36 @@
 			?>
 		</table>
 		<section>
-			<a class="page-btn" href="/mini_board/src/list.php/?page=<?php echo $prev_page_num ?>">이전</a>
+			<a class="page-btn" href="/mini_board/src/list.php/?page=<?php echo $prev_page_num; ?>"><</a>
 			<?php 
-				for($i = 1; $i <= $max_page_num; $i++){
+				$list_page_block = (int)ceil($boards_cnt/5);
+				$block_num = (int)ceil($max_page_num/$list_page_block);
+				$block_first = ($block_num*$list_page_block)-($list_page_block-1);
+				$present_num = $block_first-1;
+
+				for($i = $block_first; $i <= $list_page_block; $i++){
+					$present_num+=1;
+					
+					if( $i > $max_page_num ){
+						break;
+					}
+
+					if((int)$page_num === (int)$present_num){
 			?>
+				<a class="page-hover" href="/mini_board/src/list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+			<?php 
+					} else {
+				?>
 				<a class="page-btn" href="/mini_board/src/list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></a>
 			<?php
 				}
+			}
 			?>
-			<a class="page-btn" href="/mini_board/src/list.php/?page=<?php echo $next_page_num ?>">다음</a>
+			<a class="page-btn" href="/mini_board/src/list.php/?page=<?php echo $next_page_num ?>">></a>
 		</section>
-		<a class="page-btn" href="/mini_board/src/insert.php">글쓰기</a>
+		<div class="text-write">
+			<a class="btn-write" href="/mini_board/src/insert.php">글쓰기</a>
+		</div>
 	</main>
 </body>
 </html>

@@ -22,7 +22,7 @@ body {
 main {
 	padding-top: 10px;
 }
-a:hover {
+a:hover, a:focus, a:active {
 	cursor: url(../../doc/cursor2.png) 5 0,auto;
 }
 
@@ -114,12 +114,13 @@ section a:focus {
 	color: #1d1c1d;
 }
 .list-font a:hover {
-	color: #dec08f;
+	color: #000000;
 	font-weight: 600;
 }
 
 .list-font a:focus {
-	color: #dec08f;
+	color: #d1a359;
+	font-weight: 600;
 }
 .text-write {
 	text-align: center;

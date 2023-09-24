@@ -13,7 +13,8 @@ echo $str5, "\n";
 // 상수 : 절대 변하지 않는 값
 // 상수 이름은 무조건 대문자
 define("NUM", 100);
-echo NUM;
-
+define("STR", "스트링 타입"." ".NUM);
+echo NUM, STR;
+// echo NUM, STR;
 
 ?>

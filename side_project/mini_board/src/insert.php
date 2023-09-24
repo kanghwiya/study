@@ -60,7 +60,7 @@ if($http_method === "POST"){
 			<input type="text" id="title" name="title" required>
 		<br><br>
 			<label for="content">내용</label>
-			<textarea name="content" id="content" cols="70" rows="18"></textarea required>
+			<textarea name="content" id="content" cols="70" rows="18" required></textarea>
 		<br>
 			<div class="form-submit">
 				<button type="submit">확인</button>

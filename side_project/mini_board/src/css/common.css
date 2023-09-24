@@ -137,11 +137,11 @@ section a:focus {
 .btn-write:hover {
 	color: rgb(0, 0, 0);
 	background-color: rgb(154, 154, 154);
-	transition: 0.3s;
+	transition: 0.4s;
 }
 .page-hover {
-	color: rgb(0, 0, 0);
-	background-color: rgb(178, 178, 178);
+	color: #ffffff;
+	background-color: #abbec8;
 }
 
 /* 상세 페이지 */

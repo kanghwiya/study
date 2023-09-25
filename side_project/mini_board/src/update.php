@@ -5,7 +5,7 @@ require_once(ROOT."lib/lib_db.php");
 
 $conn = null; //DB 연결용 변수
 $id = isset($_GET["id"]) ? $_GET["id"] : $_POST["id"]; //id 세팅
-$page = isset($_GET["page"]) ? $_GET["page"] : $_POST["post"]; //page 세팅
+$page = isset($_GET["page"]) ? $_GET["page"] : $_POST["page"]; //page 세팅
 $http_method = $_SERVER["REQUEST_METHOD"]; //Method 확인
 
 try {
@@ -43,12 +43,22 @@ try {
 		];
 
 		//게시글 수정 처리
-		
+		$conn->beginTransaction(); //트랜잭션 시작
+		if(!db_update_boards_id($conn, $arr_param)){
+			throw new Exception("DB Error : Update_boards_id");
+		}
+		$conn->commit(); //commit
+
+		header("Location: detail.php/?id={$id}&page={$page}"); //디테일 페이지로 이동
+		exit;
 	}
 
-
 } catch(Exception $e) {
-
+	if($http_method === "POST") {
+		$conn->rollBack();
+	}
+	echo $e->getMessage();
+	exit; //자리종료
 } finally {
 	db_destroy_conn($conn);
 }
@@ -67,10 +77,10 @@ try {
 	<?php
 		require_once(FILE_HEADER);
 	?>
-	<form action="/mini_board/src/update.php">
+	<form action="/mini_board/src/update.php" method="POST">
 		<table class="detail_table">
-			<input type="hidden" name="id" value="<?php echo $id ?>">
-			<input type="hidden" name="page" value="<?php echo $page ?>">
+			<input type="hidden" name="id" value="<?php echo $id; ?>">
+			<input type="hidden" name="page" value="<?php echo $page; ?>">
 			<colgroup>
 					<col width="20%">
 					<col width="82%">
@@ -78,22 +88,22 @@ try {
 			
 			<tr class="detail">
 				<th >글 번호</th>
-				<td><?php echo $item["id"];?></td>
+				<td><?php echo $item["id"]; ?></td>
 			</tr>
 			<tr class="detail">
 				<th>제목</th>
-				<td> <input type="text" name="title" value="<?php echo $item["content"]?>">
+				<td> <input type="text" name="title" value="<?php echo $item["content"]; ?>">
 			</tr>
 			<tr class="detail_cont" >
 				<th>내용</th>
 				<td style="word-break:break-all">
-				<textarea name="content" id="content" cols="70" rows="18"> <?php echo $item["content"]?> </textarea>
+				<textarea name="content" id="content" cols="70" rows="18"> <?php echo $item["content"]; ?> </textarea>
 				</td>
 			</tr>
 		</table>
 		<div class="detail-btn detail-btn2">
-				<button type="submit">수정확인</button>
-				<a href="/mini_board/src/detail.php/?id=<?php echo $id; ?>&page=<?php echo $page; ?>">수정취소</a>
+			<button type="submit">수정확인</button>
+			<a href="/mini_board/src/detail.php/?id=<?php echo $id; ?>&page=<?php echo $page; ?>">수정취소</a>
 		</div>
 	</form>
 </body>

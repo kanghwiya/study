@@ -78,19 +78,19 @@ $item = $result[0];
 		
 		<tr class="detail">
 			<th >글 번호</th>
-			<td><?php echo $item["id"];?></td>
+			<td><?php echo $item["id"]; ?></td>
 		</tr>
 		<tr class="detail">
 			<th>제목</th>
-			<td><?php echo $item["title"];?></td>
+			<td><?php echo $item["title"]; ?></td>
 		</tr>
 		<tr class="detail">
 			<th>작성일자</th>
-			<td><?php echo $item["create_at"]?></td>
+			<td><?php echo $item["create_at"]; ?></td>
 		</tr>
 		<tr class="detail_cont" >
 			<th>내용</th>
-			<td style="word-break:break-all"><?php echo $item["content"];?></td>
+			<td style="word-break:break-all"><?php echo $item["content"]; ?></td>
 		</tr>
 	</table>
 	<div class="detail-btn">

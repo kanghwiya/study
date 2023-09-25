@@ -118,6 +118,11 @@
 				$block_first = ($block_num*$list_page_block)-($list_page_block-1);
 				$present_num = $block_first-1;
 
+				// 삼항 연산자로 돌리는 법 : 조건 ? 참일 때 처리 : 거짓일 때 처리
+				// for($i = 1; $i <= $max_page_num; $i++) {
+				// 	$str = (int)$page_num === $i ? "bk-a" : ""; }
+				// common.css 파일에 bk-a 클래스에 CSS를 줌.<?php echo 출력 값에 $str;를 추가하면 됨
+
 				for($i = $block_first; $i <= $list_page_block; $i++){
 					$present_num+=1;
 					
@@ -127,6 +132,7 @@
 
 					if((int)$page_num === (int)$present_num){
 			?>
+
 				<a class="page-hover" href="/mini_board/src/list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></a>
 			<?php 
 					} else {

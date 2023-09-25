@@ -5,8 +5,14 @@
 
 $conn = null;
 my_db_conn($conn);
-$page = $_GET["page"];
 
+// $page_name = $_SERVER["PHP_SELF"];
+// $chk_detail = isset($_GET["page"]) ? $_GET["test"] : "update"; //한 페이지에 수정 구현하는 법
+// 제목 td에 가서 
+// if($chk_detail =--= "detail") {
+// 	echo $item["title"];
+// } else {
+// 	<input type="text" name "title">}
 
 try{
 	$id="";
@@ -17,7 +23,7 @@ try{
 	}
 
 	$id = $_GET["id"]; //id 세팅
-
+	$page = $_GET["page"]; //page 세팅
 
 	if(!my_db_conn($conn)){
 		throw new Exception("DB ERROR : PDO INSTANCE");
@@ -87,8 +93,8 @@ $item = $result[0];
 			<td style="word-break:break-all"><?php echo $item["content"];?></td>
 		</tr>
 	</table>
-	<div class="deatil-btn">
-			<a href="#">수정</a>
+	<div class="detail-btn">
+			<a href="/mini_board/src/update.php/?id=<?php echo $id; ?>&page=<?php echo $page; ?>">수정</a>
 			<a href="/mini_board/src/list.php/?page=<?php echo $page; ?>">취소</a>
 			<a href="#">삭제</a>
 	</div>

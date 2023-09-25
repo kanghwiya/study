@@ -1,0 +1,100 @@
+<?php
+define("ROOT", $_SERVER["DOCUMENT_ROOT"]."/mini_board/src/");
+define("FILE_HEADER", ROOT."header.php");
+require_once(ROOT."lib/lib_db.php");
+
+$conn = null; //DB 연결용 변수
+$id = isset($_GET["id"]) ? $_GET["id"] : $_POST["id"]; //id 세팅
+$page = isset($_GET["page"]) ? $_GET["page"] : $_POST["post"]; //page 세팅
+$http_method = $_SERVER["REQUEST_METHOD"]; //Method 확인
+
+try {
+	if(!my_db_conn($conn)) {
+		throw new Exception("DB Error : PDO Instance");
+	}
+
+	if($http_method === "GET"){
+		// Get Method의 경우
+		//게시글 데이터 조회를 위한 파라미터 세팅
+		$arr_param = [
+			"id" => $id
+		];
+	
+		// 게시글 데이터 조회
+		$result = db_select_boards_id( $conn, $arr_param );
+	
+		//게시글 조회 예외처리
+		if($result === false){
+			throw new Exception("DB Error : PDO Select_id");
+		//게시글 조회 에러
+		} else if(!count($result) === 1){
+		//게시글 조회 count 에러
+		throw new Exception("DB Error : PDO Select_id count,".count($result));
+		}
+		
+	$item = $result[0];
+	} else {
+		//Post Method의 경우
+		//게시글 수정을 위해 파라미터 셋팅
+		$arr_param = [
+			"id" => $id
+			,"title" => $_POST["title"]
+			,"content" => $_POST["content"]
+		];
+
+		//게시글 수정 처리
+		
+	}
+
+
+} catch(Exception $e) {
+
+} finally {
+	db_destroy_conn($conn);
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/mini_board/src/css/common.css">
+	<title>수정페이지</title>
+</head>
+<body>
+	<?php
+		require_once(FILE_HEADER);
+	?>
+	<form action="/mini_board/src/update.php">
+		<table class="detail_table">
+			<input type="hidden" name="id" value="<?php echo $id ?>">
+			<input type="hidden" name="page" value="<?php echo $page ?>">
+			<colgroup>
+					<col width="20%">
+					<col width="82%">
+			</colgroup>
+			
+			<tr class="detail">
+				<th >글 번호</th>
+				<td><?php echo $item["id"];?></td>
+			</tr>
+			<tr class="detail">
+				<th>제목</th>
+				<td> <input type="text" name="title" value="<?php echo $item["content"]?>">
+			</tr>
+			<tr class="detail_cont" >
+				<th>내용</th>
+				<td style="word-break:break-all">
+				<textarea name="content" id="content" cols="70" rows="18"> <?php echo $item["content"]?> </textarea>
+				</td>
+			</tr>
+		</table>
+		<div class="detail-btn detail-btn2">
+				<button type="submit">수정확인</button>
+				<a href="/mini_board/src/detail.php/?id=<?php echo $id; ?>&page=<?php echo $page; ?>">수정취소</a>
+		</div>
+	</form>
+</body>
+</html>

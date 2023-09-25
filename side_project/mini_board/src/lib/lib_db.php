@@ -140,5 +140,18 @@ function db_select_boards_id( &$conn, &$arr_param ) {
 	}
 }
 
+function db_update_boards_id( &$conn, &$arr_param ){
+	//배열을 레퍼런스로 받는 이유 : 배열이 사이즈가 크기 때문
+	$sql = " UPDATE "
+."			boards "
+."SET ( "
+."		'title' = :title "
+."		,'content' = :content "
+."	) "
+."	WHERE = 
+."		:"
+
+} 
+
 
 ?>

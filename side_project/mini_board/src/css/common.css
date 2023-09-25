@@ -12,6 +12,7 @@
 }
 
 body {
+	min-width: 1000px;
 	margin:0;
 	padding:0;
 	background-image: url(../../doc/pngegg.png);
@@ -28,7 +29,7 @@ a:hover, a:focus, a:active {
 
 header {
 	width: 100%;
-	background: #232323;
+	background: #161617;
 	padding: 2rem;
 	border-radius: 50px 0 0 0;
 }
@@ -152,14 +153,14 @@ section a:focus {
 .detail {
 	height: 60px;
 }
-.detail_cont {
+.detail_cont>td {
 	border-style: none;
 }
-.deatil-btn {
+.detail-btn {
 	text-align: center;
 	margin-left: 500px;
 }
-.deatil-btn>a{
+.detail-btn>a{
 	width: 100px;
 	padding: 20px;
 	background-color: #1d1c1d;
@@ -168,10 +169,13 @@ section a:focus {
 	border-radius: 15px;
 	text-align: center;
 }
-.deatil-btn>a:visited {
+.detail-btn2>a {
+	width: 120px;
+}
+.detail-btn>a:visited {
 	color: #ffffff;
 }
-.deatil-btn>a:hover {
+.detail-btn>a:hover {
 	color: #ffffff;
 	background-color: rgb(182, 182, 182);
 	transition: 0.2s;

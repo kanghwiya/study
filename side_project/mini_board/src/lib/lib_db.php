@@ -149,7 +149,7 @@ function db_update_boards_id( &$conn, &$arr_param ){
 ."		,'content' = :content "
 ."	) "
 ."	WHERE = 
-."		:"
+.""
 
 } 
 

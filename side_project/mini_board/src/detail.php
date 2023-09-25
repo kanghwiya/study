@@ -37,7 +37,7 @@ try{
 	$result = db_select_boards_id( $conn, $arr_param );
 
 	//게시글 조회 예외처리
-	if(!$result){
+	if($result === false){
 		throw new Exception("DB Error : PDO Select_id");
 	//게시글 조회 에러
 	} else if(!count($result) === 1){

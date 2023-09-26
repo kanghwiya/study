@@ -21,9 +21,10 @@ try {
 	$conn = new PDO($db_dns, $db_user, $db_pw, $db_options);
 	return true;
 } catch ( Exception $e ) {
-		$conn = null; //DB 파기
-		return false;
-	}
+	echo $e->getMessage(); // Exception 메세지 출력
+	$conn = null; //DB 파기
+	return false;
+}
 	
 }
 
@@ -31,19 +32,22 @@ function db_destroy_conn($conn){
 	$conn = null;
 }
 
-function db_select_boards_paging($conn, &$arr_param){
+function db_select_boards_paging(&$conn, &$arr_param){
 	try {
 		$sql =
-		" SELECT "
-		."		id "
-		."		,title "
-		."		,create_at "
-		."	from "
-		."		boards "
-		."	ORDER BY "
-		."			id DESC "
-		."	LIMIT :list_cnt OFFSET :offset"
-	;
+			" SELECT "
+			."		id "
+			."		,title "
+			."		,create_at "
+			."	from "
+			."		boards "
+			."	WHERE "
+			."		delete_flg = '0' "
+			."	ORDER BY "
+			."			id DESC "
+			."	LIMIT :list_cnt "
+			." 	OFFSET :offset "
+		;
 		$arr_ps=[
 			":list_cnt" => $arr_param["list_cnt"]
 			,":offset" => $arr_param["offset"]
@@ -54,8 +58,8 @@ function db_select_boards_paging($conn, &$arr_param){
 		$result = $stmt->fetchAll();
 		return $result; // 정상
 
-
 	} catch( Exception $e) {
+		echo $e->getMessage(); // Exception 메세지 출력
 		return false; //예외발생
 	}
 }
@@ -67,6 +71,8 @@ function db_select_boards_cnt(&$conn){
 		."			COUNT(id) as cnt " //as 줘야 값을 가져오기 쉬움
 		."	FROM "
 		."			boards "
+		."	WHERE "
+		."			delete_flg = '0' "
 		;
 		
 	try {
@@ -75,6 +81,7 @@ function db_select_boards_cnt(&$conn){
 		return (int)$result[0]["cnt"]; //정상
 
 	} catch( Exception $e) {
+		echo $e->getMessage(); // Exception 메세지 출력
 		return false; //예외발생
 	}
 
@@ -100,6 +107,7 @@ $arr_ps = [
 	$result = $stmt->execute($arr_ps);
 	return $result; //$result 값 자체가 boolean
 }catch(Exception $e){
+	echo $e->getMessage(); // Exception 메세지 출력
 	return false;
 }
 
@@ -122,6 +130,8 @@ function db_select_boards_id( &$conn, &$arr_param ) {
 	."			boards "
 	."		WHERE "
 	."			id = :id "
+	."		AND "
+	."			delete_flg = '0' "
 	;
 
 	$arr_ps = [
@@ -155,13 +165,40 @@ $arr_ps = [
 	,":id" => $arr_param["id"]
 ];
 
+	try {
+		$stmt = $conn->prepare($sql);
+		$result = $stmt->execute($arr_ps);
+		return $result;
+	} catch(Exception $e) {
+		echo $e->getMessage();
+		return false;
+	}
+
+}
+
+function db_delete_boards_id( &$conn, &$arr_param ){
+
+	$sql = " UPDATE "
+	."			boards "
+	."	SET "
+	."			delete_at = now() "
+	."			,delete_flg = '1' "
+	."	WHERE "
+	."			id = :id ";
+
+	$arr_ps = [
+		":id" => $arr_param["id"]
+	];
+
 try {
+	// 2. Query 실행
 	$stmt = $conn->prepare($sql);
 	$result = $stmt->execute($arr_ps);
-	return $result;
-} catch(Exception $e) {
-	echo $e->getMessage();
-	return false;
+
+	return $result; // 정상종료 : true 리턴
+} catch (Exception $e) {
+	echo $e->getMessage(); // Exception 메세지 출력
+	return false; // 예외발생 : false 리턴
 }
 
 }

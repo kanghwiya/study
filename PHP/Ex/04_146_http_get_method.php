@@ -10,6 +10,7 @@
 // http://localhost/mini_board/src/list.php 
 // 에서 localhost까지는 도메인 이후 mini_ ~ .php 까지는 패스라고 한다.
 
+// url의 구조
 // 프로토콜->도메인->패스->파라미터 순
 // 프로토콜 : 통신을 하기 위한 규약, 규칙, 약속
 // 도메인 : 접속하고자 하는 서버의 IP 또는 별칭
@@ -17,6 +18,15 @@
 // 쿼리스트림(파라미터): Get Method로 통신할 때 유저가 보내주는 데이터
 
 
+// HTTP(HyperText Transfer Protocol) 통신
+// HTML 파일을 Request, Response하며 통신
+// 단, 요즘은 JSON 등등 여러 텍스트 형식도 통신이 가능.
+
+
 
 print_r($_GET); //슈퍼글로벌 변수는 읽기만 해야함. 값을 넣으면 x
+
+// GET 파라미터로 보내면 외부에 유출이 되고,
+// POST로 보내면 외부에 유출이 되지 않음.
 ?>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            

@@ -7,6 +7,6 @@ CREATE TABLE boards(
 	,title varchar(100) NOT null
 	,content VARCHAR(1000) NOT null
 	,creat_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
-	,delete_fig CHAR(1) NOT NULL DEFAULT '0'
+	,delete_flg CHAR(1) NOT NULL DEFAULT '0'
 	,delete_at DATETIME DEFAULT NULL
 );

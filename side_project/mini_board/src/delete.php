@@ -125,15 +125,15 @@ try {
 				<th>제목</th>
 				<td><?php echo $item["title"]; ?></td>
 			</tr>
-			<tr>
+			<tr class="detail_cont">
 				<th>내용</th>
 				<td><?php echo $item["content"]; ?></td>
 			</tr>
 		</table>
 	</main>
 	<section>
-		<div class="detail-btn">
-			<form action="/mini_board/src/delete.php" method="post">
+		<div class="delete">
+			<form action="/mini_board/src/delete.php" class="detail-btn" method="post">
 				<input type="hidden" name="id" value="<?php echo $id; ?>"> <!--form태그에서 name은 슈퍼글로벌 변수의 키가 된다. -->
 				<button type="submit">동의</button>
 				<a href="/mini_board/src/detail.php/?id=<?php echo $id; ?>&page=<?php echo $page; ?>">취소</a>

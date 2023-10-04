@@ -35,7 +35,7 @@
 	if($prev_page_num === 0){
 		$prev_page_num = 1;
 	}
-	
+
 	$next_page_num = $page_num + 1;
 	if($next_page_num > $max_page_num){
 		$next_page_num = $max_page_num;
@@ -51,7 +51,7 @@
 
 	//게시글 리스트 조회
 	$result = db_select_boards_paging($conn, $arr_param);
-	
+
 	if(!$result){
 		throw new Exception("DB Error : Select Boards");
 	}

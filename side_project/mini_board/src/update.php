@@ -92,15 +92,15 @@ try {
 			</tr>
 			<tr class="detail">
 				<th>제목</th>
-				<td> <input type="text" name="title" value="<?php echo $item["content"]; ?>">
+				<td> <input type="text" name="title" value="<?php echo $item["title"]; ?>">
 			</tr>
 			<tr class="detail_cont" >
 				<th>내용</th>
 				<td style="word-break:break-all">
-				<textarea name="content" id="content" cols="70" rows="18"> <?php echo $item["content"]; ?> </textarea>
+				<textarea name="content" id="content" cols="64" rows="17"> <?php echo $item["content"]; ?> </textarea>
 				</td>
 			</tr>
-		</table>
+		</table>s
 		<div class="detail-btn detail-btn2">
 			<button type="submit">수정확인</button>
 			<a href="/mini_board/src/detail.php/?id=<?php echo $id; ?>&page=<?php echo $page; ?>">수정취소</a>

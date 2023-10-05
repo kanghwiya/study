@@ -106,6 +106,7 @@ section>a  {
 	color: #ffffff;
 	border-radius: 18px;
 	font-weight: 800;
+	
 };
 .text-center {
 	display: inline-block;
@@ -250,4 +251,16 @@ input[type=text]{
 /* 삭제 페이지 */
 .delete>form>button {
 	width: 100px;
+}
+
+.container {
+	background-image: linear-gradient(90deg, red, orange, yellow, green, blue, navy, purple);
+  -webkit-background-clip: text;
+  color: transparent;
+	font-size: 2rem;
+	display: inline-block;
+	margin-bottom: -100px;
+}
+.error-main {
+	text-align: center;
 }

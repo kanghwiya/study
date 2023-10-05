@@ -48,7 +48,7 @@ try{
 $item = $result[0];
 
 } catch (Exception $e){
-	echo $e->getMessage(); //예외 메세지 출력
+	header("Location: error.php/?err_msg={$e->getMessage()}");
 	exit;
 } finally {
 	db_destroy_conn($conn);

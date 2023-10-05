@@ -80,7 +80,7 @@ try {
 	if($http_method === "POST") {
 		$conn->rollBack();
 	}
-	echo $e->getmessage();
+	header("Location: error.php/?err_msg={$e->getMessage()}");
 	exit;
 } finally {
 	db_destroy_conn($conn);

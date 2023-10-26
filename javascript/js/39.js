@@ -2,6 +2,7 @@
 // 1. DOM ( Document Object Model )이란? - 교재 P.679 그림 참조
 //  - 웹 문서를 제어하기 위해서 웹 문서를 객체화한 것
 //  - DOM API를 통해서 HTML의 구조나 내용 또는 스타일등을 동적으로 조작 가능
+//  - 유저의 반응 혹은 이벤트에 따라 페이지를 계속 바꾸어주는 것
 // ---------------------------------------------------------
 
 
@@ -12,6 +13,7 @@
 
 const TITLE = document.getElementById('title');
 TITLE.style.color = 'blue'; //inline으로 들어감
+
 
 const SUB = document.getElementById('subtitle');
 SUB.style.backgroundColor = 'Beige';
@@ -63,3 +65,85 @@ TITLE.style.color = 'Black';
 TITLE.classList.add('class1', 'class2', 'class3');
 //  삭제
 TITLE.classList.remove('class2');
+
+
+
+// ------------------
+// 5. 새로운 요소 생성
+// ------------------
+// 요소 만들기
+const LI = document.createElement('li');
+LI.innerHTML = '오잉';
+
+// 삽입할 부모 요소 접근
+const UL = document.querySelector('#ul');
+
+// 부모요소의 가장 마지막 위치에 삽입
+UL.appendChild(LI);
+
+// 요소를 특정 위치에 삽입하는 방법
+const SPACE = document.querySelector('li:nth-child(3)');
+UL.insertBefore(LI, SPACE);
+
+//해당 요소를 지우는 방법
+LI.remove();
+
+
+// 1. 사과게임 위에 장기를 넣어주세요.
+
+const JJANG = document.createElement('li');
+JJANG.innerHTML = '장기';
+const PARENTS = document.querySelector('#ul');
+const LOCATION = document.querySelector('li:nth-child(4)');
+PARENTS.insertBefore(JJANG, LOCATION);
+
+// 2. 어메이징브릭에 베이지 배경색을 넣어주세요.
+
+const AMAZING = document.querySelector('ul li:last-child');
+AMAZING.style.backgroundColor = 'Beige';
+
+// 3. 리스트에서 짝수는 빨간색글씨, 홀수는 파란색 글씨로 만들어주세요.
+
+// 방법1
+const COLOR = document.getElementsByTagName('li');
+
+for(let i = 0; i < COLOR.length; i++){
+	if( i % 2 === 0 ){
+		COLOR[i].style.color = 'Blue';
+	} else {
+		COLOR[i].style.color = 'Red';
+	}
+}
+
+// 방법2
+const EVEN = document.querySelectorAll('ul li:nth-child(even)');
+const ODD = document.querySelectorAll('ul li:nth-child(odd)');
+for(let i = 0; i < EVEN.length; i++){
+	EVEN[i].style.color = 'red';
+}
+for(let i = 0; i < ODD.length; i++){
+	ODD[i].style.color = 'red';
+}
+
+
+// 방법3
+for(let i = 0; i < COLOR.length; i++){
+	COLOR[i].style.color = i % 2 === 0 ? 'blue' : 'red';
+}
+
+// const TEST = document.querySelector('#title');
+// TEST.style.backgroundColor = 'Blue';
+
+
+
+
+
+
+
+
+
+
+
+
+
+

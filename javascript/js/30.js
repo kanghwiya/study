@@ -39,6 +39,7 @@ Kday = '';
 // 	default:
 // 		KDay = '일요일'
 // 		break;
+
 // }
 
 // getHours() : 시를 가져오는 메소드

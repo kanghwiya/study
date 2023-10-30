@@ -43,10 +43,10 @@ const BTNCLOSE = document.getElementById('btn_close');
 BTNCLOSE.addEventListener('click', popClose);
 
 
+
 //----------------
 // 이벤트 삭제
 //----------------
-
 
 // BTNDAUM.removeEventListener('click', popOpen);
 BTNCLOSE.removeEventListener('click', popClose);

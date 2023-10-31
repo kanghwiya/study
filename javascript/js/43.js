@@ -26,9 +26,15 @@
 
 
 
-// 4. JSON ( JavaScript Object Notation )이란?
-// JASON.stringify( obj ) : Object를 JASON 포맷의 String으로 변환(Serializing)해주는 메소드
-
+// 4. JSON ( JavaScript Object Notation ) 이란?
+	// JavaSctipt의 Object에 큰 영감을 받아 만들어진 서버 간의 HTTP 통신을 위한 텍스트 데이터 포맷입니다.
+	// 장점은 다음과 같습니다.
+	// 	- 데이터를 주고 받을 때 쓸 수 있는 가장 간단한 파일 포맷
+	// 	- 가벼운 텍스트를 기반
+	// 	- 가독성이 좋음
+	// 	- Key와 Value가 짝을 이루고 있음
+	// 	- 데이터를 서버와 주고 받을 때 직렬화(Serialization)[*1 참조]하기 위해 사용
+	// 	- 프로그래밍 언어나 플랫폼에 상관없이 사용 가능
 
 // json
 
@@ -38,4 +44,72 @@
 // 		,name: '홍길동'
 //	 }
 // }
+
+// 5. API 예제 사이트
+	// https://picsum.photos/
+const MY_URL = "https://picsum.photos/v2/list?page=2&limit=5"
+const BTN_API = document.querySelector('#btn-api');
+BTN_API.addEventListener('click', my_fetch);
+
+
+// 1. url 2. 데이터. 처리할 방식.(post로 넣던가 get으로 넣던가 등등..)
+
+function my_fetch(){
+	const INPUT_URL = document.querySelector('#input-url');
+	fetch(INPUT_URL.value.trim())
+	.then( response => {
+		if( response.status >= 200 && response.status < 300){
+			return response.json();
+		} else {
+			throw new Error('에러에러');
+		}
+	})
+	.then( data => makeImg(data))
+	.catch( error => console.log(error) );
+
+}
+
+
+// status 200대는 정상처리, 300대는 서버에서 예외처리 되었을 때. 400대는 통신자체에서 에러가 났을 때
+
+function makeImg(data) {
+	data.forEach( item => {
+		const NEW_IMG = document.createElement('img');
+		const DIV_IMG = document.querySelector('#div-img');
+		NEW_IMG.setAttribute('src', item.download_url);
+		NEW_IMG.style.width = '200px';
+		NEW_IMG.style.height = '200px';
+		document.body.appendChild(NEW_ID);
+	});
+}
+
+// 방법1
+const BTN_DELETE = document.getElementById('api-delete');
+BTN_DELETE.onclick = function(){
+	window.location.reload();
+}
+
+
+// 방법2
+BTN_DELETE.addEventListener('click', remove);
+function remove(){
+	const INPUT_IMG = document.querySelectorAll('img');
+	for(let i = 0; i < INPUT_IMG.length; i++){
+		INPUT_IMG[i].remove();
+	}
+}
+
+// 방법3
+function remove2(){
+	const DIV_IMG = document.querySelector('#div-img');
+	DIV_IMG.replaceChildren();
+}
+
+
+// 방법4
+function remove3(){
+	const DIV_IMG = document.querySelector('#div-img');
+	DIV_IMG.innerHTML = "";
+}
+
 

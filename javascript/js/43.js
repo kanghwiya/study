@@ -69,7 +69,6 @@ function my_fetch(){
 
 }
 
-
 // status 200대는 정상처리, 300대는 서버에서 예외처리 되었을 때. 400대는 통신자체에서 에러가 났을 때
 
 function makeImg(data) {
@@ -110,6 +109,28 @@ function remove2(){
 function remove3(){
 	const DIV_IMG = document.querySelector('#div-img');
 	DIV_IMG.innerHTML = "";
+}
+
+// fetch 2번째 아규먼트 셋팅 방법
+function infinityLoop(){
+	let apiUrl = "http://192.168.0.82:6001/03_insert.php"
+	let init = {
+		method: "POST"
+		// headers : {
+		// 	'Origin': 'http://192.168.0.156:6001',
+		// 	'Content-Type': 'application/text'
+		// 	'Access-Control'
+		// }
+		,body: {
+			title: "아이딩"
+			,content: "우앵"
+			,em_id: "2"
+		}
+	};
+
+	fetch(apiUrl)
+	.then( response => console.log(response))
+	.catch( error => console.log(error) );
 }
 
 

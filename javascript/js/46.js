@@ -4,6 +4,7 @@
 // async & promise를 기반으로 동작한다.
 
 
+
 function PRO3(str, ms){
 	return new Promise( function(resolve) {
 		setTimeout(() => {

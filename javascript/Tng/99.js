@@ -25,12 +25,11 @@ function imgCall(data){
 		const CONTENT = document.getElementById('content-grid')
 		const NEW_ID = document.createElement('div');
 		const NEW_DIV = document.createElement('div');
-		NEW_DIV.setAttribute('class', 'new-div')
 		NEW_ID.innerHTML = item.id;
+		NEW_DIV.setAttribute('class', 'new-div');
 		NEW_DIV.appendChild(NEW_ID);
 		NEW_DIV.appendChild(IMG_CALL);
 		CONTENT.appendChild(NEW_DIV);
-
 	});
 }
 

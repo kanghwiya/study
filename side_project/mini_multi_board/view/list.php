@@ -32,10 +32,10 @@
 			</div>
 		  </div>
 		  <div class="card" >
-			<img src="../img/나몰빼미.jpg" class="card-img-top" alt="...">
+			<img src="../img/ㅌㅁ.jpg" class="card-img-top" alt="...">
 			<div class="card-body">
-			  <h5 class="card-title">나몰빼미</h5>
-			  <p class="card-text">부엉이포켓몬</p>
+			  <h5 class="card-title">이태민</h5>
+			  <p class="card-text">애착인간입니다 ^^ </p>
 			  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDetail">상세</button>
 			</div>
 		  </div>

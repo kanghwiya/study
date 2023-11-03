@@ -27,12 +27,12 @@ class Router {
 				//해당 컨트롤러 호출
 				new UC("loginGet"); //오버라이드
 			} else {
-				new User("loginPost");
+				new UC("LoginPOST");
 				//해당 컨트롤러 호출
 			}
 		}else if($url === "user/logout"){
 			if($method === "GET"){
-				new User("logoutGet");
+				new UC("logoutGet");
 			}
 		}else if($url === "user/regist"){
 			if($method === "GET"){

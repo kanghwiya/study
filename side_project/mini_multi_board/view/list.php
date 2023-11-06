@@ -3,14 +3,15 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>자유 게시판 페이지</title>
+	<title><?php echo $this->titleBoardName; ?> 페이지</title>
 	<link rel="stylesheet" href="/view/css/common.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-	<?php require_once("view/inc/header.php"); ?>
+	<?php require_once("view/inc/header.php");
+		?>
 		<div class="text-center mt-5 mb-5">
-			<h1>자유게시판</h1>
+			<h1><?php echo $this->titleBoardName; ?></h1>
 			<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" data-bs-toggle="modal" data-bs-target="#modalInsert" fill="currentColor" class="bi bi-signpost-split" viewBox="0 0 16 16">
 				<path d="M7 7V1.414a1 1 0 0 1 2 0V2h5a1 1 0 0 1 .8.4l.975 1.3a.5.5 0 0 1 0 .6L14.8 5.6a1 1 0 0 1-.8.4H9v10H7v-5H2a1 1 0 0 1-.8-.4L.225 9.3a.5.5 0 0 1 0-.6L1.2 7.4A1 1 0 0 1 2 7h5zm1 3V8H2l-.75 1L2 10h6zm0-5h6l.75-1L14 3H8v2z"/>
 			</svg>
@@ -22,47 +23,21 @@
 		</div>
 	</div> -->
 	<main class="">
+		<?php
+			foreach($this->arrBoardInfo as $item) {
+		?>
 		<div class="card">
-			<img src="../img/1_포켓몬스터_나몰빼미.png" class="card-img-top" alt="...">
+			<img src="<?php echo isset($item["b_img"])? "/"._PATH_USERIMG.$item["b_img"] : ""; ?>" class="card-img-top" alt="이미지 없음">
 			<div class="card-body">
-			  <h5 class="card-title">나몰빼미</h5>
-			  <p class="card-text">부엉이포켓몬</p>
+			  <h5 class="card-title"><?php echo $item["b_title"]; ?></h5>
+			  <p class="card-text"><?php echo mb_substr($item["b_content"], 0, 10)."..."; ?></p>
 			  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDetail">상세</button>
 			  <!-- 모달 창 : 감춰뒀다가 버튼을 누르면 보여줌 -->
 			</div>
 		  </div>
-		  <div class="card" >
-			<img src="../img/ㅌㅁ.jpg" class="card-img-top" alt="...">
-			<div class="card-body">
-			  <h5 class="card-title">이태민</h5>
-			  <p class="card-text">애착인간입니다 ^^ </p>
-			  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDetail">상세</button>
-			</div>
-		  </div>
-		  <div class="card">
-			<img src="../img/나몰빼미.jpg" class="card-img-top" alt="...">
-			<div class="card-body">
-			  <h5 class="card-title">나몰빼미</h5>
-			  <p class="card-text">부엉이포켓몬</p>
-			  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDetail">상세</button>
-			</div>
-		  </div>
-		  <div class="card">
-			<img src="../img/나몰뺌.gif" class="card-img-top" alt="...">
-			<div class="card-body">
-			  <h5 class="card-title">나몰빼미</h5>
-			  <p class="card-text">부엉이포켓몬</p>
-			  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDetail">상세</button>
-			</div>
-		  </div>
-		  <div class="card">
-			<img src="../img/나몰뺌2.gif" class="card-img-top" alt="...">
-			<div class="card-body">
-			  <h5 class="card-title">나몰빼미</h5>
-			  <p class="card-text">부엉이포켓몬</p>
-			  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDetail">상세</button>
-			</div>
-		  </div>
+		<?php
+			}
+		?>
 	</main>
 	<!--modal -->
 	<div class="modal" id="modalDetail" tabindex="-1">
@@ -92,20 +67,21 @@
 	<div class="modal" id="modalInsert" tabindex="-1">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<form action="">
+			<form action="/board/add" method="POST" enctype="multipart/form-data"> <!-- 라우터 주소 -->
 				<div class="modal-header">
 					<h5 class="modal-title">도감 등록</h5>
 					<!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
 				</div>
 				<div class="modal-body">
+					<input type="hidden" id="b_type" name="b_type" value="<?php echo $this->boardType; ?>">
 					<div class="mb-3">
-						<input type="text" class="form-control" placeholder="제목을 입력해주세요.">
+						<input type="text" name="b_title" class="form-control" placeholder="제목을 입력해주세요.">
 					</div>
 					<div class="mb-3">
-						<textarea class="form-control" rows="10" placeholder="내용을 입력하세요"></textarea>
+						<textarea class="form-control" name="b_content" rows="10" placeholder="내용을 입력하세요"></textarea>
 					</div>
 					<br><br>
-					<input type="file" accept="image/*">
+					<input type="file" accept="image /*" name="b_img" name="b_img">
 					</div>
 				<div class="modal-footer">
 					<button type="submit" class="btn btn-primary" data-bs-dismiss="modal">작성</button>

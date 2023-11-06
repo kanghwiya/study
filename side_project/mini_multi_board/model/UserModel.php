@@ -14,7 +14,7 @@ class UserModel extends ParentsModel{
 			$prepare = [
 				":u_id" => $arrUserInfo["u_id"]
 			];
-		
+
 		// PW 추가처리
 		if($pwFlg) {
 			$sql .= " AND u_pw = :u_pw ";

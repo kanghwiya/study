@@ -48,6 +48,13 @@ class Router {
 			} else {
 				//해당 컨트롤러 호출
 			}
+		}else if($url === "board/add"){
+			if($method === "GET"){
+				//처리 없음
+			} else {
+				//POST 처리
+				new BC("addPost");
+			}
 		} else {
 			echo "이상한 url :".$url;
 

@@ -83,5 +83,34 @@ class BoardController extends ParentsController {
 
 		return "Location: /board/list?b_type=".$b_type;
 	}
+
+	// 상세 정보 API
+	protected function detailGet() {
+		$id = $_GET["id"]; //정수가 맞는지 체크
+
+		$arrBoardDetailInfo = [
+			"id" => $id
+		];
+
+		$boardModel = new BoardModel();
+		$result = $boardModel->getBoardDetail($arrBoardDetailInfo);
+		
+		//이미지 패스 재설정
+		$result[0]["b_img"] = "/"._PATH_USERIMG.$result[0]["b_img"];
+
+		// 레스폰스 데이터 작성
+		$arrTmp = [
+			"errflg" => "1"
+			,"msg" => "권한에러"
+			,"data" => $result[0]
+		];
+		$response = json_encode($arrTmp);
+
+		// response 처리 (html이 아니라 json으로 보내기 때문에)
+		header('Content-type: application/json');
+		echo $response;
+		exit();
+
+	}
 	
 }

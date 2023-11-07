@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>자유 게시판 페이지</title>
+	<title>로그인 페이지</title>
 	<link rel="stylesheet" href="./css/common.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
@@ -23,6 +23,7 @@
 			  <input type="password" class="form-control" id="u_pw" name="u_pw">
 			</div>
 			<button type="submit" class="btn btn-dark">로그인</button>
+			<a href="/user/regist" type="button" class="btn btn-outline-dark float-end">회원가입</a>
 		</form>
 	</main>
 	<footer class="bg-dark fixed-bottom text-light text-center p-3">저작권 by.바나나공장</footer>

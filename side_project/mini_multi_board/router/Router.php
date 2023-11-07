@@ -39,7 +39,7 @@ class Router {
 				//해당 컨트롤러 호출
 				new UC("registGet"); //오버라이드
 			} else {
-				//해당 컨트롤러 호출
+				new UC("registPost"); 
 			}
 		}else if($url === "board/list"){
 			if($method === "GET"){
@@ -55,6 +55,10 @@ class Router {
 				//POST 처리
 				new BC("addPost");
 			}
+		}else if($url === "board/detail"){
+			if($method === "GET"){
+				new  BC("detailGet");
+			} 
 		} else {
 			echo "이상한 url :".$url;
 

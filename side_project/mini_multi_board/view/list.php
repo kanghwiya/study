@@ -26,12 +26,13 @@
 		<?php
 			foreach($this->arrBoardInfo as $item) {
 		?>
-		<div class="card">
+		<div class="card" id="card<?php echo $item["id"]; ?>">
 			<img src="<?php echo isset($item["b_img"])? "/"._PATH_USERIMG.$item["b_img"] : ""; ?>" class="card-img-top" alt="이미지 없음">
 			<div class="card-body">
 			  <h5 class="card-title"><?php echo $item["b_title"]; ?></h5>
 			  <p class="card-text"><?php echo mb_substr($item["b_content"], 0, 10)."..."; ?></p>
-			  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDetail">상세</button>
+			  <!-- <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDetail">상세</button> -->
+			  <button class="btn btn-primary" onclick="openDetail(<?php echo $item['id'] ?>); return false;">상세</button>
 			  <!-- 모달 창 : 감춰뒀다가 버튼을 누르면 보여줌 -->
 			</div>
 		  </div>
@@ -40,23 +41,27 @@
 		?>
 	</main>
 	<!--modal -->
-	<div class="modal" id="modalDetail" tabindex="-1">
+	<div class="modal" id="modalDetail" tabindex="-1" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-scrollable">
 		  <div class="modal-content">
 			<div class="modal-header">
-			  <h5 class="modal-title">포켓몬 도감</h5>
-			  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			  <h5 class="modal-title" id="b_title">포켓몬 도감</h5>
+			  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeDetailModal(); return false;"></button>
 			</div>
 			<div class="modal-body">
-				<p>나몰빼미는 날개 소리를 내지 않고 하늘을 날 수 있다.
+				<p id="create_date"> 작성일 </p>
+				<p id="update_date"> 수정일 </p>
+				<span id="b_content">나몰빼미는 날개 소리를 내지 않고 하늘을 날 수 있다.
 					상대가 눈치채지 않게 다가가서 강력한 발차기를 반복하거나 커터 같은 날카로운 잎과 일체가 된 날개를 멀리서도 공격할 수 있다.
 					밤이라도 낮과 동일하게 사물을 볼 수 있다. 야간 배틀에는 압도적으로 유리하다.
 					나몰빼미의 목은 180도 가까이 회전한다.
-					배틀 중이라도 포켓몬 트레이너 지시를 목을 돌려서 기다리고 있다.</p>
-				<img src="../img/도감.png" alt="">
+					배틀 중이라도 포켓몬 트레이너 지시를 목을 돌려서 기다리고 있다.</span>
+				<img src="../img/도감.png" alt="" id="b_img">
 			</div>
 			<div class="modal-footer">
-			  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+			  <button type="button">수정</button>
+			  <button type="button">삭제</button>
+			  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="closeDetailModal(); return false;">Close</button>
 			</div>
 		  </div>
 		</div>

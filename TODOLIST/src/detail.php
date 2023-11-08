@@ -30,8 +30,6 @@ try{
         $arr_delete_id = [
             "id" => $id
         ];
-tg
-
 
 
         db_delete($conn, $arr_delete_id);

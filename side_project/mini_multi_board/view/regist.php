@@ -15,9 +15,11 @@
 			<div id="emailHelp" class="form-text text-danger">
 				<?php echo count($this->arrErrorMsg) > 0 ? implode("<br>", $this->arrErrorMsg) : "" ?>
 			</div>
-			<div class="mb-3">
+			<div class="mb-3" id="idchk">
 			  <label for="u_id" class="form-label">아이디</label>
 			  <input type="text" class="form-control" id="u_id" name="u_id">
+			  <button type="button" class="btn btn-light" onclick="idChk()" return false;>아이디 중복 확인</button>
+			  <span id = "idChkMsg"></span>
 			</div>
 			<div class="mb-3">
 			  <label for="u_pw" class="form-label">비밀번호</label>
@@ -36,6 +38,7 @@
 		</form>
 	</main>
 	<footer class="bg-dark fixed-bottom text-light text-center p-3">저작권 by.바나나공장</footer>
+	<script src="/view/js/common.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

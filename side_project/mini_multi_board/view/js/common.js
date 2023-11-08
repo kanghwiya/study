@@ -54,3 +54,23 @@ function closeDetailModal() {
 	MODAL.classList.remove('show');
 	MODAL.style = 'display: none;';
 }
+
+function idChk(){
+	const IDCHK = document.getElementById('idChkMsg');
+	IDCHK.innerHTML = ""; //기존에 있을지도 모르는 메세지를 비우는 처리
+	const USERID = document.getElementById('u_id').value;
+	const URL = '/user/idchk?u_id='+USERID
+	
+	fetch(URL)
+	.then( response => response.json() )
+	.then ( data => {
+		if(data.errflg === "0") {
+			IDCHK.innerHTML = "사용 가능한 아이디입니다."
+			IDCHK.classList = 'text-success';
+		} else {
+			IDCHK.innerHTML = "사용할 수 없는 아이디입니다."
+			IDCHK.classList = 'text-danger';
+		}
+	})
+	.catch( error => console.log(error) )
+}

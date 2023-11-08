@@ -60,4 +60,27 @@ class UserModel extends ParentsModel{
 				exit();
 			}
 	}
+
+	// protected function getUserId( $inputIdData ) {
+	// 	$sql =
+	// 		" SELECT "
+	// 		."	u_id "
+	// 		." FROM user "
+	// 		." WHERE u_id = :u_id";
+
+	// 		$prepare = [
+	// 			":u_id" => $inputIdData["u_id"]
+	// 		];
+
+	// 	try{
+	// 		$stmt = $this->conn->prepare($sql);
+	// 		$stmt->execute($prepare);
+	// 		$result = $stmt->fetchAll();
+	// 		return $result;
+
+	// 	}catch(Exception $e){
+	// 		echo "UserModel->getUserId Error".$e->getMessage();
+	// 		exit();
+	// 	}
+	// }
 }

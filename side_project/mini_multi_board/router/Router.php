@@ -34,6 +34,10 @@ class Router {
 			if($method === "GET"){
 				new UC("logoutGet");
 			}
+		}else if($url === "user/idchk"){
+			if($method === "GET"){
+				new  UC("idChkGet");
+			} 
 		}else if($url === "user/regist"){
 			if($method === "GET"){
 				//해당 컨트롤러 호출

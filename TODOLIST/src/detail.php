@@ -66,7 +66,7 @@ try{
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>상세페이지</title>
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-    <link rel="stylesheet" href="./CSS/common.css">
+    <link rel="stylesheet" href="TODOLIST/src/CSS/common.css">
 </head>
 <body>
     <?php require_once("header.php"); ?>

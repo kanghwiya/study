@@ -1,0 +1,9 @@
+
+function confirm(){
+    if(confirm("정말로 삭제하시겠습니까?")){
+        alert("삭제되었습니다.");
+        document.getElementById('deleteAt').value = true; // input 태그의 value 속성값으로 넣는다
+    } else {
+        document.getElementById('deleteAt').value = false; // input 태그의 value 속성값으로 넣는다
+    }
+}

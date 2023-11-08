@@ -47,7 +47,7 @@ for( let key in obj ){
 
 // for...of : 모든 iterable 객체를 루프 가능, value에만 접근이 가능(String, Array, map, Set, TypeArray..)
 
-for( let val in arr ){
+for( let val of arr ){
 	console.log(val);
 }
 

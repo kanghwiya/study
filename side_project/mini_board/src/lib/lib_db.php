@@ -4,7 +4,7 @@ function my_db_conn( &$conn ){
 	$db_host = "localhost"; //host
 	$db_user = "root"; //user
 	$db_pw = "php504"; //password
-	$db_name = "mini_board"; // DB name
+	$db_name = "TODOLIST"; // DB name
 	$db_charset = "utf8mb4"; //charset
 	$db_dns = "mysql:host =" .$db_host.";dbname=".$db_name.";charset".$db_charset;
 

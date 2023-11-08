@@ -156,7 +156,7 @@ try{
 					// 삼항연산자 : 조건 ? 참일때처리 : 거짓일때처리
 					$hover = (int)$page_num === $i ? "hover" : "";
 			?>
-					<a class="button_a" <?php echo $hover ?>" href="/TODOLIST/src/list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+					<a class="button_a<?php echo $hover ?>" href="/TODOLIST/src/list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></a>
 			<?php
 				}
 			?>
@@ -188,7 +188,7 @@ try{
                             // 삼항연산자 : 조건 ? 참일때처리 : 거짓일때처리
                             $clear_hover = (int)$clear_page_num === $i ? "hover" : "";
                     ?>
-                            <a class="button_a" <?php echo $clear_hover ?>" href="/TODOLIST/src/list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                            <a class="button_a <?php echo $clear_hover ?>" href="/TODOLIST/src/list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></a>
                     <?php
                         }
                     ?>

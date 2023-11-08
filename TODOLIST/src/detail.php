@@ -67,22 +67,6 @@ try{
     <title>상세페이지</title>
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <link rel="stylesheet" href="./CSS/common.css">
-    <script>
-        let btnDelete = document.getElementById('btn-delete');
-        btnDelete.addEventListener('click', alert1);
-
-        function alert1(){
-            if(confirm("정말로 삭제하시겠습니까?")){
-                window.location("")
-                alert("삭제되었습니다.");
-                return true;
-            } else {
-                window.location("");
-                return false;
-            }
-
-        }
-    </script>
 </head>
 <body>
     <?php require_once("header.php"); ?>
@@ -100,7 +84,7 @@ try{
             <input type="hidden" id="id" name="id">
             <div class="detail-btn">
                 <a href="/TODOLIST/src/update.php/?id=<?php echo $id; ?>">수정</a>
-                <button id="btn-delete" onclick="confirm()">삭제</button>
+                <button id="btn-delete" onclick="confirm(); return false;">삭제</button>
                 <input type="hidden" id="deleteAt" name="deleteAt" value="">
             </div>
         </form>

@@ -69,6 +69,7 @@ class BoardModel extends ParentsModel {
 		$sql =
 		" SELECT "
 		." 	id "
+		." 	,u_pk"
 		."	,b_title "
 		."	,b_content "
 		."	,b_img "

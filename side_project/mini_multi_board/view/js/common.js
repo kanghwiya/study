@@ -37,11 +37,12 @@ function openDetail(id) {
 		TITLE.innerHTML = data.data.b_title;
 		CONTENT.innerHTML = data.data.b_content;
 		IMG.setAttribute('src', data.data.b_img);
+		DEL_INPUT.value = data.data.id;
 		INSERT_DATE.innerHTML = '작성일 : ' + data.data.created_at;
 		UPDATE_DATE.innerHTML = '수정일 : ' + data.data.updated_at;
 
 		// 삭제 버튼 표시 처리
-		if(data.data.uflg === "1" ) {
+		if(data.data.uflg === "1") {
 			BTN_DEL.classList.remove('d-none');
 		} else {
 			BTN_DEL.classList.add('d-none');

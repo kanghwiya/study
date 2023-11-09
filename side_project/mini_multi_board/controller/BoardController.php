@@ -99,7 +99,7 @@ class BoardController extends ParentsController {
 		$result[0]["b_img"] = "/"._PATH_USERIMG.$result[0]["b_img"];
 
 		// 작성 유저 플래그 설정
-		$result[0]["uflg"] = $result[0]["u_pk"] === $_SESSION["u_pk"] ? "1" : 0;
+		$result[0]["uflg"] = $result[0]["u_pk"] === $_SESSION["u_pk"] ? "1" : "0";
 
 		// 레스폰스 데이터 작성
 		$arrTmp = [

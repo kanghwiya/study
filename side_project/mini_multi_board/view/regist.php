@@ -18,7 +18,7 @@
 			<div class="mb-3" id="idchk">
 			  <label for="u_id" class="form-label">아이디</label>
 			  <input type="text" class="form-control" id="u_id" name="u_id">
-			  <button type="button" class="btn btn-light" onclick="idChk()" return false;>아이디 중복 확인</button>
+			  <button type="button" class="btn btn-light" onclick="idChk(); return false;" >아이디 중복 확인</button>
 			  <span id = "idChkMsg"></span>
 			</div>
 			<div class="mb-3">

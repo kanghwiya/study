@@ -30,12 +30,25 @@ function openDetail(id) {
 		const IMG = document.querySelector('#b_img');
 		const INSERT_DATE = document.querySelector('#create_date');
 		const UPDATE_DATE = document.querySelector('#update_date');
+		const DELETEID = document.querySelector('#deleteId');
+		const DEL_INPUT = document.querySelector('#del_id');
+		const BTN_DEL = document.querySelector('#btn_del');
 
 		TITLE.innerHTML = data.data.b_title;
 		CONTENT.innerHTML = data.data.b_content;
 		IMG.setAttribute('src', data.data.b_img);
 		INSERT_DATE.innerHTML = '작성일 : ' + data.data.created_at;
 		UPDATE_DATE.innerHTML = '수정일 : ' + data.data.updated_at;
+
+		// 삭제 버튼 표시 처리
+		if(data.data.uflg === "1" ) {
+			BTN_DEL.classList.remove('d-none');
+		} else {
+			BTN_DEL.classList.add('d-none');
+		}
+		
+		DELETEID.value = data.data.id;
+		DEL_INPUT.value = data.data.id;
 		
 		openModal();
 	})
@@ -70,6 +83,29 @@ function idChk(){
 		} else {
 			IDCHK.innerHTML = "사용할 수 없는 아이디입니다."
 			IDCHK.classList = 'text-danger';
+		}
+	})
+	.catch( error => console.log(error) )
+}
+
+function deleteCard() {
+	const B_PK = document.querySelector('#del_id').value;
+	const URL = '/board/remove?id=' + B_PK;
+
+	fetch(URL)
+	.then( response => response.json() )
+	.then( data => {
+		if(data.errflg === "0"){
+			// 모달 닫기
+			closeDetailModal();
+			
+			// 카드 삭제
+			const MAIN = document.querySelector('main');
+			const CARD_NAME = '#card' + data.id; //리스트에 등록된 카드 아이디값 불러오기
+			const DEL_CARD = document.querySelector(CARD_NAME);
+			MAIN.removeChild(DEL_CARD);
+		} else {
+			alert(data.msg);
 		}
 	})
 	.catch( error => console.log(error) )

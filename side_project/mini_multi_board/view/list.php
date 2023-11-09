@@ -41,6 +41,7 @@
 		?>
 	</main>
 	<!--modal -->
+	<form action="/board/delete" method="get">
 	<div class="modal" id="modalDetail" tabindex="-1" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-scrollable">
 		  <div class="modal-content">
@@ -49,6 +50,7 @@
 			  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeDetailModal(); return false;"></button>
 			</div>
 			<div class="modal-body">
+				<p id="writer"> 작성일 </p>
 				<p id="create_date"> 작성일 </p>
 				<p id="update_date"> 수정일 </p>
 				<span id="b_content">나몰빼미는 날개 소리를 내지 않고 하늘을 날 수 있다.
@@ -58,15 +60,21 @@
 					배틀 중이라도 포켓몬 트레이너 지시를 목을 돌려서 기다리고 있다.</span>
 				<img src="../img/도감.png" alt="" id="b_img">
 			</div>
-			<div class="modal-footer">
-			  <button type="button">수정</button>
-			  <button type="button">삭제</button>
-			  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="closeDetailModal(); return false;">Close</button>
+			<div class="modal-footer justify-content-between">
+				<input type="hidden" id="deleteId" name="id">
+				<button id="btn_del" type="submit" class="btn btn-dark">삭제</button>
+				<input type="hidden" id="del_id" value="">
+				<!-- <span id="del_id" class="d-none"></span> 스판으로 세팅하는 법-->
+				<button type="button" class="btn btn-dark me-auto" onclick="deleteCard(); return false;">삭제onclick</button>
+			<div class="flex-end">
+				<button type="button" class="btn btn-dark">수정</button>
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="closeDetailModal(); return false;">Close</button>
+			</div>
 			</div>
 		  </div>
 		</div>
 	  </div>
-
+	</form>
 
 	<!-- 작성 모달 -->
 	<div class="modal" id="modalInsert" tabindex="-1">

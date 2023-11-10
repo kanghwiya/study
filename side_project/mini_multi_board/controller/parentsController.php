@@ -55,7 +55,7 @@ class ParentsController {
 			exit();
 		}
 	}
-	
+
 
 	// 뷰 호출용 메소드
 	private function callView($path) {

@@ -17,7 +17,7 @@ CREATE TABLE product(
 
 CREATE TABLE sellinfo(
 	id INT PRIMARY KEY AUTO_INCREMENT
-	,ship_flg CHAR(1) NOT NULL
+	,ship_flg CHAR(1) NOT NULL DEFAULT '0'
 	,u_id INT NOT NULL
 	,p_id INT NOT NULL
 );
@@ -35,6 +35,21 @@ COMMIT;
 -- DROP TABLE sellinfo;
 -- DROP DATABASE test;
 -- 
+
+INSERT INTO user(NAME, birth)
+VALUES('갑돌이', 19600114);
+
+INSERT INTO product(p_name, p_price)
+VALUES ('고구마', 3000);
+
+INSERT INTO sellinfo(u_id, p_id)
+VALUES(1, 1);
+
+UPDATE user
+SET NAME='갑갑이'
+WHERE id = 1;
+
+
 -- DELETE FROM sellinfo WHERE id = 1;
 -- 
 -- TRUNCATE TABLE sellinfo;

@@ -11,16 +11,17 @@ return new class extends Migration
      *
      * @return void
      */
+
+    //  php artisan make:model Category -mfs
+    //  php artisan migrate
     public function up()
     {
-        Schema::create('failed_jobs', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
+            // id, no, name, deleted_at
             $table->id();
-            $table->string('uuid')->unique();
-            $table->text('connection');
-            $table->text('queue');
-            $table->longText('payload');
-            $table->longText('exception');
-            $table->timestamp('failed_at')->useCurrent();
+            $table->char('no',1)->unique(); //char(1) unique not null
+            $table->string('name', 20)->unique(); // name varchar(20) unique not null
+            $table->softDeletes();
         });
     }
 
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('failed_jobs');
+        Schema::dropIfExists('categories');
     }
 };

@@ -116,3 +116,22 @@ Route::get('/test', [TestController::class, 'index'])->name('test.index');
 // php artisan make:controller 컨트롤러명 --resource
 use App\Http\Controllers\TaskController;
 Route::resource('/task', TaskController::class);
+
+
+// 블레이드 템플릿 용
+Route::get('/child1', function() {
+    $arr = [
+        'name' => '홍길동'
+        ,'age' => 130
+        ,'gender' => '여자'
+    ];
+    $arr2 = [];
+    return view('child1')
+    ->with('gender', '13')
+    ->with('data', $arr)
+    ->with('data2', $arr2);
+});
+
+Route::get('/child2', function() {
+    return view('child2');
+});

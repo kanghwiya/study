@@ -3,7 +3,7 @@
 @section('title', 'login')
 
 @section('main')
-<main>
+<mai class="d-flex justify-content-center align-items-center h-75">
   <form class="" action="{{route('user.login.post')}}" method="POST" style="width: 300px">
     @include('layout.errorlayout')
       @csrf
@@ -17,7 +17,7 @@
       </div>
       <button type="submit" class="btn btn-dark">로그인</button>
     </form>
-</main>
+</mai>
 
 {{-- 별도의 javascript가 있을 경우 여기에 넣음 --}}
 @endsection

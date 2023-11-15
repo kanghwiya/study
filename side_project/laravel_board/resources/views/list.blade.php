@@ -7,11 +7,11 @@
 @section('main')
 <main>
 	@forelse($data as $item)
-		<div class="card">
+		<div class="card" id="{{$item->b_id}}">
 			<div class="card-body">
 				<h5 class="card-title">{{$item->b_title}}</h5>
 				<p class="card-text">{{$item->b_content}}</p>
-				<a href="{{route('board.show', ['board' => $item->b_id])}}" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#modalDetail">상세</a>
+				<a href="{{route('board.show', ['board' => $item->b_id])}}" class="btn btn-outline-info">상세</a>
 			</div>
 		</div>
 	@empty

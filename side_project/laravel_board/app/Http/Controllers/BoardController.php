@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Models\Board;
 
 class BoardController extends Controller
@@ -57,7 +58,10 @@ class BoardController extends Controller
     public function show($id)
     {
         
-        
+        $result = DB::table('boards')
+                ->select('b_title', 'b_content')
+                ->where('b_id','=',$id)
+                ->get();
         return view('detail')->with('data', $result);
     }
 

@@ -16,7 +16,7 @@ class Board extends Model
     // Factory : 대량 더미데이터 생성
     // seeders : 
 
-    // Board::get(); 셀렉트
+    // Board::get(); 셀렉트j
     // Board::save($data); 인서트
 
     // 테이블 정의 (정의하지 않을 경우에는 클래스 명의 복수형을 암묵적으로 인식)

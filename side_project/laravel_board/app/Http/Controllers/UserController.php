@@ -20,25 +20,26 @@ class UserController extends Controller
         return view('login');
     }
     public function loginpost(Request $request){
-        // 유효성 검사
-        $validator = Validator::make(
-            // validator에 make라는 메소드가 있다.. 
-            $request->only('email', 'password')
-            ,[
-                'email' => 'required|email|max:50'
-                ,'password' => 'required'
-            ]
-        );
+        // del 231116 middleware로 이관
+        // // 유효성 검사
+        // $validator = Validator::make(
+        //     // validator에 make라는 메소드가 있다.. 
+        //     $request->only('email', 'password')
+        //     ,[
+        //         'email' => 'required|email|max:50'
+        //         ,'password' => 'required'
+        //     ]
+        // );
 
-        // 유효성 검사 실패시 처리
-        if($validator->fails()){
-            return view('login')->withErrors($validator->errors());
-        }
+        // // 유효성 검사 실패시 처리
+        // if($validator->fails()){
+        //     return view('login')->withErrors($validator->errors());
+        // }
 
         // 유저 정보 습득
         $result = User::where('email', $request->email)->first();
         if(!$result || !(Hash::check($request->password, $result->password))) {
-            $errorMsg = '아이디와 비밀번호를 확인해주세요';
+            $errorMsg = '아이디와 비밀번호를 다시 확인해 주세요.';
             return redirect()->route('user.login.get')->withErrors($errorMsg);
         }
 
@@ -59,26 +60,27 @@ class UserController extends Controller
     }
     public function registrationpost(Request $request){
 
-        // 유효성 검사
-        $validator = Validator::make(
-            // validator에 make라는 메소드가 있다.. 
-            $request->only('email', 'password', 'passwordchk', 'name')
-            ,[
-                // 정규식을 적거나 라라벨을 이용해서 해도 됨. 이건 라라벨에서 제공하는 것을 사용
-                // 필수|이메일형식확인|최대글자수50
-                'email' => 'required|email|max:50'
-                ,'name' => 'required|regex:/^[a-zA-Z가-힣]+$/|min:2|max:50'
-                ,'password' => 'same:passwordchk'
-            ]
-        );
+        // del 231116 middleware로 이관
+        // // 유효성 검사
+        // $validator = Validator::make(
+        //     // validator에 make라는 메소드가 있다.. 
+        //     $request->only('email', 'password', 'passwordchk', 'name')
+        //     ,[
+        //         // 정규식을 적거나 라라벨을 이용해서 해도 됨. 이건 라라벨에서 제공하는 것을 사용
+        //         // 필수|이메일형식확인|최대글자수50
+        //         'email' => 'required|email|max:50'
+        //         ,'name' => 'required|regex:/^[a-zA-Z가-힣]+$/|min:2|max:50'
+        //         ,'password' => 'same:passwordchk'
+        //     ]
+        // );
         
-        // 에러 확인하는 var_dump
-        // var_dump($validator->errors());
+        // // 에러 확인하는 var_dump
+        // // var_dump($validator->errors());
 
-        // 유효성 검사 실패시 처리
-        if($validator->fails()){
-            return view('registration')->withErrors($validator->errors());
-        }
+        // // 유효성 검사 실패시 처리
+        // if($validator->fails()){
+        //     return view('registration')->withErrors($validator->errors());
+        // }
 
 
         // 데이터 베이스에 저장할 데이터 획득(하지 않을 경우 선별되지 않은 대량의 데이터를... 눈으로..확인가능)

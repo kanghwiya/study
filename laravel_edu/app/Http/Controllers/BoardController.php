@@ -34,34 +34,34 @@ class BoardController extends Controller
 
 
         // --------------------------------INSERT--------------------------------
-        // $sql =
-        //     'INSERT INTO boards
-        //     (title, content, created_at, updated_at, categories_no)
-        //     VALUES
-        //     (?, ?, ?, ?, ?)';
-        // $arr = [
-        //     'maniac'
-        //     ,'매니악 자꾸 뇌에서 재생됨.....'
-        //     ,now()
-        //     ,now()
-        //     ,'0'
-        // ];
-        // DB::beginTransaction();
-        // DB::insert($sql, $arr);
-        // DB::commit();
+        $sql =
+            'INSERT INTO boards
+            (title, content, created_at, updated_at, categories_no)
+            VALUES
+            (?, ?, ?, ?, ?)';
+        $arr = [
+            'maniac'
+            ,'매니악 자꾸 뇌에서 재생됨.....'
+            ,now()
+            ,now()
+            ,'0'
+        ];
+        DB::beginTransaction();
+        DB::insert($sql, $arr);
+        DB::commit();
 
 
         $result = DB::select('SELECT * FROM boards ORDER BY id DESC LIMIT 1');
         // --------------------------------UPDATE--------------------------------
-        // DB::beginTransaction();
-        // DB::update('UPDATE boards SET title = ?, content = ? WHERE id = ?', ['뭬니악', '우짤거야...', $result[0]->id]);
-        // DB::commit();
+        DB::beginTransaction();
+        DB::update('UPDATE boards SET title = ?, content = ? WHERE id = ?', ['뭬니악', '우짤거야...', $result[0]->id]);
+        DB::commit();
         
         // --------------------------------UPDATE--------------------------------
-        // DB::beginTransaction();
-        // $result = DB::delete('DELETE FROM boards WHERE id = ?', [$result[0]->id]);
-        // // result에 영향 받은 행의 개수가 찍힘
-        // DB::commit();
+        DB::beginTransaction();
+        $result = DB::delete('DELETE FROM boards WHERE id = ?', [$result[0]->id]);
+        // result에 영향 받은 행의 개수가 찍힘
+        DB::commit();
         
         // 클래스로 리턴 $result[0]->id;
 
@@ -117,11 +117,7 @@ class BoardController extends Controller
             ->get();
 
 
-            // SELECT count(boa.id), cat.name
-            // FROM boards boa
-            // JOIN categories cat
-            // ON boa.categories_no = cat.no
-            // GROUP BY boa.categories_no;
+
         return var_dump($result);
     }
 }

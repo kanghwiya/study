@@ -3,6 +3,7 @@
   <!-- 데이터 바인딩 하는 이유 / 
     vue.js의 강점 : right way 
   library와 프레임워크의 차이점-->
+  
   <img alt="Vue logo" src="./assets/logo.png">
 <!-- 헤더 -->
 <div class="nav">

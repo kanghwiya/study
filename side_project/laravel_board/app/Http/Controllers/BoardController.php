@@ -26,7 +26,6 @@ class BoardController extends Controller
         // 게시글 획득
         $result = Board::get();
         return view('list')->with('data', $result);
-        
     }
 
     /**
@@ -98,7 +97,8 @@ class BoardController extends Controller
      */
     public function edit($id)
     {
-        //
+        $result = Board::find($id);
+        return view('update')->with('data', $result);
     }
 
     /**
@@ -110,7 +110,16 @@ class BoardController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $result = Board::find($id);
+        $result2 = $request->only('b_title', 'b_content');
+        $result->update($result2);
+
+        // $result->b_title = $request->b_title;
+        // $result->b_content = $request->b_content;
+        // $result->save();
+
+        return redirect()->route('board.show',['board' => $id]);
+
     }
 
     /**

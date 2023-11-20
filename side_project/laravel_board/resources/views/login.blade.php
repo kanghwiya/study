@@ -4,7 +4,7 @@
 
 @section('main')
 <main class="d-flex justify-content-center align-items-center h-75">
-  <form class="" action="" method="POST" style="width: 300px">
+  <form class="" action="{{route('user.login.post')}}" method="POST" style="width: 300px">
     @include('layout.errorlayout')
       @csrf
       <div class="mb-3">

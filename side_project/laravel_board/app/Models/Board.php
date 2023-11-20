@@ -13,7 +13,7 @@ class Board extends Model
 
     protected $primaryKey = 'b_id';
 
-    // guarded: 수정 가능한 항목(fillable)으로 설정
+    // 수정 가능한 항목(fillable)으로 설정
     protected $fillable = [
         'b_title'
         ,'b_content'

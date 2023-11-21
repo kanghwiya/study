@@ -1,4 +1,18 @@
+@font-face {
+    font-family: 'TAEBAEKmilkyway';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/TAEBAEKmilkyway.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face{
+	font-family:'DNFBitBitv2';
+	font-style:normal;font-weight:400;src:url('//cdn.df.nexon.com/img/common/font/DNFBitBitv2.otf')format('opentype')
+}
 
+*{
+	font-family: 'TAEBAEKmilkyway','DNFBitBitv2';
+	font-weight: 900;
+}
 .nav {
 	background-color: #2c3e50;
 	padding: 15px;
@@ -64,4 +78,25 @@
 }
 .modalAni-leave-to {
 	transform: translateX(1920px);
+}
+
+.discount {
+	background: beige;
+	padding: 20px;
+	margin: 10px;
+	border-radius: 10px;
+	font-size: 1.5rem;
+}
+.discount p {
+	all: initial;
+	font-family: 'DNFBitBitv2'!important;
+	font-size: 2rem;
+}
+
+.detail-div {
+	margin: 30px auto;
+	background-color: rgb(245, 245, 245);
+	width: 450px;
+	padding: 20px 0;
+	border-radius: 20px;
 }

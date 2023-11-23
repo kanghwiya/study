@@ -13,7 +13,7 @@
 <ContainerComponent></ContainerComponent>
 
 <!-- 더보기 버튼 -->
-<button @click="addShowBoard()">더보기</button>
+<button v-if="$store.state.flgBtnMoreView && $store.state.flgTabUI === 0" @click="addShowBoard()">더보기</button>
 
 <!-- footer -->
 <div class="footer">

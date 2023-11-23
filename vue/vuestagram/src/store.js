@@ -10,6 +10,7 @@ const store = createStore({
             imgURL: '', //작성탭 표시용 이미지 URL 저장용
             postFileData: null, //객체로 옴. 글 작성용 파일 데이터 저장
             lastBoardId: 0, //가장 마지막 로드된 게시글 번호 저장
+            flgBtnMoreView: true, //더보기 버튼 활성여부 플래그
         }
     },
 
@@ -17,7 +18,11 @@ const store = createStore({
     mutations: {
         setBoardList(state, data) {
             state.boardData = data;
-            state.lastBoardId = data[data.length - 1].id;
+            this.commit('setLastboardId', data[data.length - 1].id);
+        },
+        // 마지막 게시글 번호 세팅용
+        setLastboardId(state, num) {
+            state.lastBoardId = num;
         },
         // 탭 ui 세팅용
         setFlgTabUI(state, num) {
@@ -38,13 +43,16 @@ const store = createStore({
         // 더보기
         setBoardListShow(state, data) {
             state.boardData.push(data);
-            state.lastBoardId = state.boardData[state.boardData.length - 1].id;
         },
         // 작성된 데이터 초기화
         setClearAddData(state){
             state.imgURL = '';
             state.postFileData = null;
         },
+        // 더보기 버튼 활성화
+        setFlgBtnMoreView(state, boo) {
+            state.flgBtnMoreView = boo;
+        }
     },
     // commit : mutation을 호출하는 함수, 첫번째 파라미터에 mutation의 이름,
     // 두 번째 파라미터에 불러올 데이터 입력
@@ -80,7 +88,7 @@ const store = createStore({
                 }
             };
             const data = {
-                name: '네임',
+                name: 'Kanghwiya',
                 img: context.state.postFileData,
                 content: document.getElementById('content').value,
             };
@@ -112,10 +120,17 @@ const store = createStore({
 
             axios.get(url, header)
             .then(res => {
-                context.commit('setBoardListShow', res.data);
+                if(res.data){
+                    // 데이터 있을 경우
+                    context.commit('setBoardListShow', res.data);
+                    context.commit('setLastboardId', res.data.id);
+                } else {
+                    // 데이터 없을 경우 더보기 버튼 false값 삽입
+                    context.commit('setFlgBtnMoreView', false);
+                }
             })
             .catch(error => {
-                console.log(error);
+                console.log(error.response.data);
             })
         },
     }

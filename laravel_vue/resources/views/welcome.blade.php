@@ -12,7 +12,8 @@
     <div id="app">
 
         부.
-        <App></App>
+
+        <App-Component :laravel-Data="{{ $data }}"></App-Component>
     </div>
 </body>
 </html>

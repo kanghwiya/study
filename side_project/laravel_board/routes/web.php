@@ -16,8 +16,8 @@ use App\Http\Controllers\BoardController;
 */
 
 Route::get('/', function () {
-    return view('login');
-});
+    return view('home');
+})->name('main');
 
 // 유저관련
 Route::get('/user/login', [UserController::class, 'loginget'])->name('user.login.get'); //로그인 화면 이동

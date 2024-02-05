@@ -51,8 +51,12 @@ SET
 	category_id = 1
 	,title = 'title'
 	,detail = 'detail'
-	,create_at = 231104
+	,create_at = 231104hwiya_subjectmini_board
 	,revise_at = NOW()
 WHERE id = 77;
 
+
+UPDATE todolist
+SET delete_at = NOW()
+WHERE id = 81;
 COMMIT;
